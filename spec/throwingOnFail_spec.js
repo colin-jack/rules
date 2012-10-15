@@ -16,7 +16,8 @@ describe('throwing on invalid', function() {
 		it("should include details in validation exception", function() {
 			try {
 				result.throw();
-			} catch (e as ValidationException) {
+			} catch (e) {
+				expect(e.message).instanceof(ValidationException);
 				expect(e.message).toEqual("Validation failed.");
 				expect(e.errors.length).toEqual(2);
 				expect(e.errors["age"]).toNotBeUndefined();
