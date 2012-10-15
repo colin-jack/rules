@@ -1,0 +1,40 @@
+{
+  "name": "validatron",
+  "version": "0.0.1",
+  "description": "Small validation framework for use in node/browser.",
+  "main": "index",
+
+  "author": {
+    "name": "Colin Jack"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colin-jack/validatron.git"
+  },
+
+  "dependencies": {
+    "underscore": "*"
+  },
+
+  "devDependencies": {
+    "jasmine": "*"
+  },
+
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+
+  "_npmUser": {
+    "name": "colin_jack",
+    "email": "colin.jack@gmail.com"
+  },
+
+  "_id": "validatron@0.0.1",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.16",
+  "_nodeVersion": "v0.6.4",
+  "_defaultsLoaded": true,
+  "_from": "validatron@>= 0.0.0"
+}
