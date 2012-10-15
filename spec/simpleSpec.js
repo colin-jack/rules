@@ -1,3 +1,7 @@
+var mustBe = require('./../lib/mustBe')
+var validatron = require('./../lib/validatron')
+var assert = require('chai').assert
+
 describe('simple numeric validation', function() {
     var validate = function(toValidate, definition) {
 		return validatron(toValidate, definition);
@@ -8,16 +12,16 @@ describe('simple numeric validation', function() {
 	var shouldHaveSingleError = function(property, error) {
 		it("Should have error for just age property", function() {
 			var invalidProperties = Object.keys(result);
-			expect(invalidProperties.length).toEqual(1);
-			expect(invalidProperties.indexOf(property)).toNotEqual(-1);
+			assert.equal(invalidProperties.length, 1);
+			assert.notEqual(invalidProperties.indexOf(property), -1);
 		});
 
 		it("Should have one error for age property", function() {
-			expect(result[property].length).toEqual(1);
+			assert.equal(result[property].length, 1);
 		});
 
 		it("Should notify you the value must be populated", function() {
-			expect(result[property][0].type).toEqual(error);
+			assert.equal(result[property][0].type, error);
 		});
 	};
 
@@ -46,7 +50,7 @@ describe('simple numeric validation', function() {
 		});
 
 		it("Should not raise any error", function() {
-			expect(Object.keys(result).length).toEqual(1);
+			assert.equal(Object.keys(result).length, 1);
 		});
 	});
 
@@ -64,4 +68,4 @@ describe('simple numeric validation', function() {
 });
 
 
-////expect(validate(toValidate, definition)).toThrow(ValidationError);
+////assert(validate(toValidate, definition)).toThrow(ValidationError);

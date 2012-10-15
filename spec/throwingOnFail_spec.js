@@ -1,3 +1,5 @@
+var mustBe = require('./../lib/mustBe')
+
 describe('throwing on invalid', function() {
 	describe("When you ask it throw and some of the values are invalid", function() {
 		var numericRequiredAge = {

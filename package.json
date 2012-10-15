@@ -18,7 +18,8 @@
   },
 
   "devDependencies": {
-    "jasmine": "*"
+    "mocha": "*",
+    "chai": "*"
   },
 
   "engines": {
