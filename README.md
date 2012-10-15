@@ -1,7 +1,7 @@
 validatron
 ==========
 
-Small validation framework for use in node/browser.
+Small validation framework.
 
 Very very early version.
 
