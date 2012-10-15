@@ -1,6 +1,6 @@
+var assert = require('chai').assert
 var mustBe = require('./../lib/mustBe')
 var validatron = require('./../lib/validatron')
-var assert = require('chai').assert
 
 describe('simple numeric validation', function() {
     var validate = function(toValidate, definition) {

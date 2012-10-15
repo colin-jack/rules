@@ -1,30 +1,43 @@
+var assert = require('chai').assert
 var mustBe = require('./../lib/mustBe')
+var validatron = require('./../lib/validatron')
+var ValidationError = require('./../lib/ValidationError')
 
 describe('throwing on invalid', function() {
 	describe("When you ask it throw and some of the values are invalid", function() {
+		var result;
+
 		var numericRequiredAge = {
 			age : mustBe().populated().numeric(),
 			name: mustBe().populated()
     	};
 
-		beforeEach(function() {
-			result = validatron({ "age" : -1, name: null }, numericRequiredAge)
-		});
-
-		it("should throw validation exception", function() {
-			expect(result.throw()).toThrow(ValidationException);
-		});
-
-		it("should include details in validation exception", function() {
+    	var catchException = function() {
 			try {
 				result.throw();
 			} catch (e) {
-				expect(e.message).instanceof(ValidationException);
-				expect(e.message).toEqual("Validation failed.");
-				expect(e.errors.length).toEqual(2);
-				expect(e.errors["age"]).toNotBeUndefined();
-				expect(e.errors["name"]).toNotBeUndefined();
+				return e;
 			}
+		}
+
+		beforeEach(function() {
+			result = validatron({ "age" : -1, name: null }, numericRequiredAge);
+		});
+
+		it("should throw validation exception", function() {
+			assert.throws(function() { result.throw() }, ValidationError);
+		});
+
+		it("should raise a validation exception", function() {
+			var e = catchException();
+			assert.equal(e.message, "Validation failed.");
+		});
+
+		it("should include details in validation exception", function() {
+			var e = catchException();
+			assert.equal(Object.keys(e.errors).length, 2);
+			assert.isDefined(e.errors["age"]);
+			assert.isDefined(e.errors["name"]);
 		});
 	});
 });
