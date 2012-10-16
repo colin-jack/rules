@@ -1,7 +1,7 @@
 {
   "name": "validatron",
   "version": "0.0.1",
-  "description": "Small validation framework for use in node/browser.",
+  "description": "Small validation framework.",
   "main": "index",
 
   "author": {

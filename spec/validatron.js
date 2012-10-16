@@ -56,7 +56,7 @@ describe('simple numeric validation', function() {
 
 	describe("When numeric property must be in range and is not", function() {
 		var numericRequiredAge = {
-			age : mustBe().populated().numeric({ minimum: 0, maximum: 130})
+			age : mustBe().populated().numeric({ minimum: 0}, { maximum: 130 })
     	};
 
 		beforeEach(function() {
@@ -66,6 +66,3 @@ describe('simple numeric validation', function() {
 		shouldHaveSingleError("age", "outside_range");
 	});
 });
-
-
-////assert(validate(toValidate, definition)).toThrow(ValidationError);
