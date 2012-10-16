@@ -1,15 +1,17 @@
 validatron
 ==========
 
-Small validation framework for use in node/browser.
+Small validation framework.
 
 Very very early version.
 
 ### Tests
-First install jasmine-node: 
+First install mocha: 
 
-  npm install jasmine-node -g
+    npm install mocha -g
 
 Run the tests:
+
+    mocha -R spec spec/ -w -G --recursive -b
 
   
