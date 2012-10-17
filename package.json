@@ -19,7 +19,8 @@
 
   "devDependencies": {
     "mocha": "*",
-    "chai": "*"
+    "chai": "*",
+    "require-namespace" : "*"
   },
 
   "engines": {

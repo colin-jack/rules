@@ -1,6 +1,6 @@
-var assert = require('chai').assert, 
-	validatorTestUtil = require('./validatorTestUtil'),
-	numericValidator = require('./../lib/numericValidator');
+var assert = require('chai').assert;
+var validatorTestUtil = require('./../testUtil');
+var numericValidator = require('./../../testFixture').require('numericValidator');
 
 describe('numeric validator', function() {
 	 var assertFailsForExpectedReason = function(value) {
@@ -13,6 +13,7 @@ describe('numeric validator', function() {
     }
 
 	describe("When value 'bob' is used", function() {
+		debugger;
 		assertFailsForExpectedReason("bob");
 	});
 
@@ -36,32 +37,32 @@ describe('numeric validator', function() {
 		assertFailsForExpectedReason(true);
 	});
 
-	var assertPassesValidation = function(value) {
+	var assertPassedValidation = function(value) {
 		var underTest = numericValidator.create();
         assert.isUndefined(underTest(value));
     };
 
 	describe("When null is used", function() {
 		it("should pass validation", function() {
-			assertPassesValidation(null);
+			assertPassedValidation(null);
 		});
 	});
 
 	describe("When undefined is used", function() {
 		it("should pass validation", function() {
-			assertPassesValidation(undefined);
+			assertPassedValidation(undefined);
 		});
 	});
 
 	describe("When 5 as string is used", function() {
 		it("should pass validation", function() {
-			assertPassesValidation('5');
+			assertPassedValidation('5');
 		});
 	});
 
 	describe("When 5 is used", function() {
 		it("should pass validation", function() {
-			assertPassesValidation(5);
+			assertPassedValidation(5);
 		});
 	});
 

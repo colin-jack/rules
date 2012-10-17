@@ -1,10 +1,9 @@
-var validatorTestUtil = require('./validatorTestUtil')
-    numericRangeValidator = require('./../lib/numericRangeValidator');
+var validatorTestUtil = require('./../testUtil');
+var numericRangeValidator = lib.require('numericRangeValidator');
 
 describe('numeric range validator', function() {
     var assertFailsForExpectedReason = function(value, config, expectedMessage) {
         var runValidatorWrapper = function() {
-            debugger;
             var underTest = numericRangeValidator.create(config);
             return underTest(value);
         }

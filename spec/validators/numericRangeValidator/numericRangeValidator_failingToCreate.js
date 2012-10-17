@@ -1,5 +1,5 @@
-var assert = require('chai').assert,
-    numericRangeValidator = require('./../lib/numericRangeValidator');
+var assert = require('chai').assert;
+var numericRangeValidator = lib.require('numericRangeValidator')
 
 describe('When you try to create range validator', function() {
     var createValidatorWrapper = function(config) {
