@@ -3,14 +3,19 @@ var log = require('util').log,
     validatron = require('./../lib/validatron'),
     mustBe = require('./../lib/mustBe');
 
-var veryInvalid = { name: "", "age" : -1, address: null, weight: "bob" };
+var invalidPerson = { 
+    name: "", 
+    age : -1, 
+    address: null, 
+    weight: "bob" 
+};
 
-var validationDefinition = {
-    age: mustBe().populated().numeric({minimum : 0, maximum: 130}),
-    name: mustBe().populated(), //.string({maxLength: 50}),
+var personSchema = {
+    age: mustBe().populated().numeric( {minimum : 0, maximum: 130} ),
+    name: mustBe().populated(),
     weight: function() { this.populated().numeric(); }
 }
 
-var result = validatron(veryInvalid, validationDefinition);
+var result = validatron(invalidPerson, personSchema);
 
 log(inspect(result));
