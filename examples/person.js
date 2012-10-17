@@ -12,8 +12,9 @@ var invalidPerson = {
 
 var personSchema = {
     age: mustBe().populated().numeric( {minimum : 0, maximum: 130} ),
-    name: mustBe().populated(),
+    name: mustBe().populated(), // TODO - string
     weight: function() { this.populated().numeric(); }
+    // TODO - Address using the mapper from address.coffee
 }
 
 var result = validatron(invalidPerson, personSchema);
