@@ -1,9 +1,55 @@
 validatron
 ==========
+Small validation framework that allows declarative validation.
 
-Small validation framework.
+### Samples
+The idea is you declare what a valid instance of your object would look like, a schema if you will:
 
-Very very early version.
+#####JavaScript
+```js
+var personSchema = {
+    age: mustBe().populated().numeric( {minimum : 0, maximum: 130} ),
+    name: mustBe().populated(), 
+    weight: function() { this.populated().numeric(); }
+}
+````
+#####CoffeeScript
+```coffeescript
+addressSchema = {
+  streetOne: mustBe().populated()
+  streetTwo: -> @.populated()
+  town: -> @.populated()
+}
+```
+Note the two styles in the schema, ```mustBe()..``` or a function where ```this``` is the validation fluent interface.
+
+#####Triggering validation
+You trigger validation using:
+
+    result = validatron(invalidAddress, addressSchema)
+
+The returned object has the per-property details of any validation failures, e.g.:
+
+```js
+{ town: 
+   [ { message: 'The value must be populated.',
+       type: 'not_populated',
+       value: undefined } ] 
+}
+
+```
+    
+
+The followi
+######JavaScript
+
+######CoffeeScript
+
+### Examples
+The project comes with examples in the examples directory:
+
+    node examples/person
+    coffee examples/address
 
 ### Tests
 First install mocha: 
@@ -14,4 +60,3 @@ Run the tests:
 
     mocha -R spec spec/ -w -G --recursive -b
 
-  
