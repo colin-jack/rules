@@ -3,9 +3,9 @@ var populatedValidator = require('./../../testFixture').require('populatedValida
 var validatorTestUtil = require('./../testUtil');
 
 describe('populated validator', function() {   
-    // describe("When value '' is used", function() {
-    //     assertFailsForExpectedReason("");
-    // });
+    describe("When value '' is used", function() {
+        assertFailsForExpectedReason("");
+    });
 
     describe("When value 'null' is used", function() {
         assertFailsForExpectedReason(null);

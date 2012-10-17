@@ -13,7 +13,6 @@ describe('numeric validator', function() {
     }
 
 	describe("When value 'bob' is used", function() {
-		debugger;
 		assertFailsForExpectedReason("bob");
 	});
 
@@ -23,10 +22,6 @@ describe('numeric validator', function() {
 
 	describe("When value '5bob' is used", function() {
 		assertFailsForExpectedReason("5bob");
-	});
-
-	describe("When value '' is used", function() {
-		assertFailsForExpectedReason("");
 	});
 
 	describe("When value false is used", function() {
