@@ -1,5 +1,5 @@
 var validatronTestUtil = require('./testUtil')
-var mustBe = lib.require('mustBe')
+var mustBe = require('./../testFixture').require('mustBe')
 
 describe('validatron - declarative', function() {
 	var validationDefinitions = {

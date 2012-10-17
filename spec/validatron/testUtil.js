@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var validatron = lib.require('validatron');
+var validatron = require('./../testFixture').require('validatron');
 
 // When using the declarative approach we have two ways of specifying how to validate:
 //    age: mustBe().populated()
