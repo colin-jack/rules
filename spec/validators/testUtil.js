@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 
-var testFailsForExpectedReason = function(valueToValidate, runsValidator, expectedMessage, expectedType) {
+var assertExpectedFail = function(valueToValidate, runsValidator, expectedMessage, expectedType) {
     var result;
 
     beforeEach(function() {
@@ -24,7 +24,8 @@ var testFailsForExpectedReason = function(valueToValidate, runsValidator, expect
     });
 };
 
-var assertNanFailsForExpectedReason = function(validator, reason) {
+// Test seperately as NaN doesn't equal itself which makes validation a bit different
+var assertNaNFailsForExpectedReason = function(validator, reason) {
     var result;
 
     beforeEach(function() {
@@ -39,6 +40,6 @@ var assertNanFailsForExpectedReason = function(validator, reason) {
 };
 
 module.exports = {
-    testFailsForExpectedReason : testFailsForExpectedReason,
-    assertNanFailsForExpectedReason : assertNanFailsForExpectedReason
+    assertExpectedFail : assertExpectedFail,
+    assertNaNFailsForExpectedReason : assertNaNFailsForExpectedReason
 }

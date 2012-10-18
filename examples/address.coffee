@@ -5,16 +5,16 @@ mustBe = require('./../lib/mustBe')
 
 invalidAddress = { 
   streetOne : "45 belch place"
-  streetTwo : "OK"
-  streetThree : "OK"
+  streetTwo : "Unfortunately this is a bit too long, blathering on"
+  streetThree : "too short"
   town : undefined
   postcode: "HJG" 
 }
 
 addressSchema = {
-  streetOne: mustBe().populated() #.string(maxLength: 50)
-  streetTwo: -> @.populated() #.string(maxLength: 50)
-  streetThree: -> @.populated() #.string(maxLength: 50)
+  streetOne: mustBe().populated()
+  streetTwo: -> @.populated().string( minLength: 10, maxLength : 10 )
+  streetThree: -> @.populated().string( minLength : 10, maxLength: 20) 
   town: -> @.populated()
   # TODO: postcode using regex
 }

@@ -21,7 +21,7 @@ describe('populated validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.testFailsForExpectedReason(value, runValidatorWrapper, "The value must be populated.", "not_populated")
+        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be populated.", "not_populated")
     }
 });
 

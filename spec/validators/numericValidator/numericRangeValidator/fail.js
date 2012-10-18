@@ -24,6 +24,6 @@ describe('numeric range validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.testFailsForExpectedReason(value, runValidatorWrapper, expectedMessage, "outside_range")
+        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, expectedMessage, "outside_range")
     }
 });

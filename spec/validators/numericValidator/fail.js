@@ -9,7 +9,7 @@ describe('numeric validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.testFailsForExpectedReason(value, runValidatorWrapper, "The value must be numeric.", "not_numeric")
+        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be numeric.", "not_numeric")
     }
 
 	describe("When value 'bob' is used", function() {
@@ -33,6 +33,6 @@ describe('numeric validator', function() {
 	});
 
 	describe("When NaN is used", function() {
-        validatorTestUtil.assertNanFailsForExpectedReason(numericValidator, "not_numeric");
+        validatorTestUtil.assertNaNFailsForExpectedReason(numericValidator, "not_numeric");
 	});
 });

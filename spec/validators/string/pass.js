@@ -26,7 +26,6 @@ describe('string validator', function() {
         });
     });
 
-
     describe("When '' is used", function() {
         it("should pass validation", function() {
             assertPassedValidation('');

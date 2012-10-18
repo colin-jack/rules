@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var stringValidator = require('./../../testFixture').require('stringValidator');
-var validatorTestUtil = require('./../testUtil');
+var testUtil = require('./../testUtil');
 
 describe('string validator', function() {   
     describe("When value 5 is used", function() {
@@ -23,9 +23,17 @@ describe('string validator', function() {
         assertFailsForExpectedReason({});
     });
 
-    // Test seperately as NaN doesn't equal itself which makes validation a bit different
     describe("When NaN is used", function() {
-        validatorTestUtil.assertNanFailsForExpectedReason(stringValidator, "not_a_string");
+        testUtil.assertNaNFailsForExpectedReason(stringValidator, "not_a_string");
+    });
+
+    describe("When valid string is used but its outside length range", function() {
+        var runValidatorWrapper = function() {
+            var underTest = stringValidator.create({minLength : 6, maxLength: 20});
+            return underTest("a");
+        }
+
+        testUtil.assertExpectedFail("a", runValidatorWrapper, "The length cannot be less than 6.", "outside_length_constraint")
     });
 
     function assertFailsForExpectedReason(value) {
@@ -34,7 +42,7 @@ describe('string validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.testFailsForExpectedReason(value, runValidatorWrapper, "The value must be a string.", "not_a_string")
+        testUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be a string.", "not_a_string")
     }
 });
 
