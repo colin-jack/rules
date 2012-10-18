@@ -6,24 +6,30 @@ var validatron = require('./../testFixture').require('validatron');
 //    age: function() { this.populated()}
 // They are just wrappers for the same validation behavior though so the tests have been extracted out
 // here so that they can be reused.
-var runNumericTests = function(validationDefinitions) {
-    describe("When property age must be populated and is not", function()   
+var runBasicTests = function(validationDefinitions) {
+    describe("When numeric age property must be populated and is not", function()   
     {
         var withNoAge = { "age" : undefined, "name": null };
 
         shouldHaveSingleError(withNoAge, validationDefinitions.numericRequiredAge, "age", "not_populated")
     });
 
-    describe("When numeric property does not need to be populated and is not", function() {
+    describe("When numeric age property does not need to be populated and is not", function() {
         var withNoAge = { "age" : undefined};
 
         shouldPassValidation(withNoAge, validationDefinitions.numericOptionalAge)
     });
 
-    describe("When numeric property must be in range and is not", function() {
+    describe("When numeric age property must be in range and is not", function() {
         var negativeAge = { "age" : -1 }
 
         shouldHaveSingleError(negativeAge, validationDefinitions.numericAgeWithRange, "age", "outside_range");
+    });
+
+    describe("When name property must be string and is not", function() {
+        var numericName = { "name" : 5 }
+
+        shouldHaveSingleError(numericName, validationDefinitions.requiredString, "name", "not_a_string");
     });
 };
 
@@ -66,7 +72,7 @@ var shouldPassValidation = function(toValidate, validationDefinition) {
 };
 
 module.exports = {
-    runNumericTests : runNumericTests,
+    runBasicTests : runBasicTests,
     shouldHaveSingleError : shouldHaveSingleError,
     shouldPassValidation : shouldPassValidation
 }

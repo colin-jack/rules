@@ -33,17 +33,6 @@ describe('numeric validator', function() {
 	});
 
 	describe("When NaN is used", function() {
-	    var result;
-
-	    beforeEach(function() {
-	        var underTest = numericValidator.create();
-            result = underTest(NaN);
-	    })
-
-	    it('should fail validation', function() {           
-	        assert.isDefined(result);
-	        assert.equal(result.type, "not_numeric");
-	    });
-
+        validatorTestUtil.assertNanFailsForExpectedReason(numericValidator, "not_numeric");
 	});
 });

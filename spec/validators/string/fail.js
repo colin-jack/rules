@@ -25,18 +25,7 @@ describe('string validator', function() {
 
     // Test seperately as NaN doesn't equal itself which makes validation a bit different
     describe("When NaN is used", function() {
-        var result;
-
-        beforeEach(function() {
-            var underTest = stringValidator.create();
-            result = underTest(NaN);
-        })
-
-        it('should fail validation', function() {           
-            assert.isDefined(result);
-            assert.equal(result.type, "not_a_string");
-        });
-
+        validatorTestUtil.assertNanFailsForExpectedReason(stringValidator, "not_a_string");
     });
 
     function assertFailsForExpectedReason(value) {

@@ -1,4 +1,4 @@
-var validatronTestUtil = require('./testUtil')
+var testUtil = require('./testUtil')
 
 describe('validatron - declarative with functions', function() {
 	
@@ -12,7 +12,10 @@ describe('validatron - declarative with functions', function() {
 		numericAgeWithRange : {
 			age : function() { this.populated().numeric({ minimum: 0, maximum: 130}); }
     	},
+        requiredString : {
+            name: function() { this.populated().string(); }
+        }
 	};
 
-    validatronTestUtil.runNumericTests(validationDefinitions);
+    testUtil.runBasicTests(validationDefinitions);
 });

@@ -1,4 +1,4 @@
-var validatronTestUtil = require('./testUtil')
+var testUtil = require('./testUtil')
 var mustBe = require('./../testFixture').require('mustBe')
 
 describe('validatron - declarative', function() {
@@ -12,7 +12,10 @@ describe('validatron - declarative', function() {
 		numericAgeWithRange : {
 			age : mustBe().populated().numeric({ minimum: 0, maximum: 130})
     	},
+        requiredString : {
+            name: mustBe().populated().string()
+        }
 	};
 
-    validatronTestUtil.runNumericTests(validationDefinitions);
+    testUtil.runBasicTests(validationDefinitions);
 });

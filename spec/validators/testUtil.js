@@ -24,6 +24,21 @@ var testFailsForExpectedReason = function(valueToValidate, runsValidator, expect
     });
 };
 
+var assertNanFailsForExpectedReason = function(validator, reason) {
+    var result;
+
+    beforeEach(function() {
+        var underTest = validator.create();
+        result = underTest(NaN);
+    })
+
+    it('should fail validation', function() {           
+        assert.isDefined(result);
+        assert.equal(result.type, reason);
+    });
+};
+
 module.exports = {
-    testFailsForExpectedReason : testFailsForExpectedReason
+    testFailsForExpectedReason : testFailsForExpectedReason,
+    assertNanFailsForExpectedReason : assertNanFailsForExpectedReason
 }
