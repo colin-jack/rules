@@ -38,12 +38,6 @@ The returned object has the per-property details of any validation failures, e.g
 }
 
 ```
-    
-
-The followi
-######JavaScript
-
-######CoffeeScript
 
 ### Examples
 The project comes with examples in the examples directory:
