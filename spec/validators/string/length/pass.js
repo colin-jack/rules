@@ -15,4 +15,12 @@ describe('string length validator', function() {
             assert.isUndefined(underTest(""));
         });
     });
+
+    describe('When asking if it handles', function() {
+        it('says yes if has minLength or maxLength', function() {
+            assert.isTrue(stringLengthValidator.handles( {minLength: 5} ));
+            //assert.isTrue(stringLengthValidator.handles( {maxLength: 5} ));
+            //assert.isFalse(stringLengthValidator.handles( {bob: 5} ));
+        });
+    });
 });

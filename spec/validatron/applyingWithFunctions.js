@@ -10,7 +10,7 @@ describe('validatron - declarative with functions', function() {
 			age : function() { this.numeric(); }
     	}, 
 		numericAgeWithRange : {
-			age : function() { this.populated().numeric({ minimum: 0, maximum: 130}); }
+			age : function() { this.populated().numeric({ min: 0, max: 130}); }
     	},
         requiredString : {
             name: function() { this.populated().string(); }

@@ -41,7 +41,7 @@ describe('When you try to create numeric range validator', function() {
 
     function shouldThrowErrorWhenCreated(minimum, maximum, expectedMessage) {
         it('should throw exception', function() {
-            var config = { minimum : minimum, maximum : maximum };
+            var config = { min : minimum, max : maximum };
             assert.throws(createValidatorWrapper(config), expectedMessage);
         })
     };

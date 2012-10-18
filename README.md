@@ -8,7 +8,7 @@ The idea is you declare what a valid instance of your object would look like, a 
 #####JavaScript
 ```js
 var personSchema = {
-    age: mustBe().populated().numeric( {minimum : 0, maximum: 130} ),
+    age: mustBe().populated().numeric( {min : 0, max: 130} ),
     name: mustBe().populated(), 
     weight: function() { this.populated().numeric(); }
 }

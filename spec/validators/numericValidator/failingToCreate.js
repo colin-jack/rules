@@ -9,7 +9,7 @@ describe('numeric validator', function() {
 				numericValidator.create({bob: "yes", bill: 5});
 			}
 
-			assert.throws(create, Error, "Unexpected configuration values provided (bob/bill). Only minimum/maximum supported.");
+			assert.throws(create, Error, "Unexpected configuration values provided (bob/bill). Only min/max supported.");
 		});
 	});
 });

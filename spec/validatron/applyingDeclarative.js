@@ -10,7 +10,7 @@ describe('validatron - declarative', function() {
 			age : mustBe().numeric()
     	}, 
 		numericAgeWithRange : {
-			age : mustBe().populated().numeric({ minimum: 0, maximum: 130})
+			age : mustBe().populated().numeric({ min: 0, max: 130})
     	},
         requiredString : {
             name: mustBe().populated().string()
