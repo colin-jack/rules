@@ -1,9 +1,9 @@
 validatron
 ==========
-Small validation framework that allows declarative validation.
+Small declarative validation framework.
 
 ### Samples
-The idea is you declare what a valid instance of your object would look like, a schema if you will:
+You declare what a valid instance of your object would look like in terms of invariants, a schema if you will:
 
 #####JavaScript
 ```js
@@ -54,3 +54,6 @@ Run the tests:
 
     mocha -R spec spec/ -w -G --recursive -b
 
+### TODO
+* More validators
+* UMD support
