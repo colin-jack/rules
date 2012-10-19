@@ -15,9 +15,9 @@ describe('validatron - declarative', function() {
         requiredString : {
             name: mustBe().populated().string()
         },
-        // phoneNumberMustMatchRegex: {
-        //     phoneNumber: mustBe().match({ pattern: /^\(?0( *\d\)?){9,10}$/ })
-        // }
+        phoneNumberMustMatchRegex: {
+            phoneNumber: mustBe().matchFor({ pattern: /^\(?0( *\d\)?){9,10}$/ })
+        }
 	};
 
     testUtil.runBasicTests(validationDefinitions);

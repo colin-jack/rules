@@ -15,9 +15,9 @@ describe('validatron - declarative with functions', function() {
         requiredString : {
             name: function() { this.populated().string(); }
         },
-        // phoneNumberMustMatchRegex: {
-        //     phoneNumber: function() { this.match({ pattern: /^\(?0( *\d\)?){9,10}$/ }) }
-        // }
+        phoneNumberMustMatchRegex: {
+            phoneNumber: function() { this.matchFor({ pattern: /^\(?0( *\d\)?){9,10}$/ }) }
+        }
 	};
 
     testUtil.runBasicTests(validationDefinitions);

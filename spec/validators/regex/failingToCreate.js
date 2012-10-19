@@ -5,7 +5,7 @@ describe('regex validator', function() {
     describe("When config has unsupported values", function() {
         it("should throw exception", function() {
             var create = function() {
-                regexValidator.create({bob: "yes", bill: 5});
+                regexValidator.create({pattern: "foo", bob: "yes", bill: 5});
             }
 
 
@@ -19,6 +19,16 @@ describe('regex validator', function() {
         it("should throw exception", function() {
             var create = function() {
                 regexValidator.create({ flags: "i" });
+            }
+
+            assert.throws(create, /The 'pattern' value must be the Regex pattern to use./);
+        });
+    });
+
+    describe("When config is null", function() {
+        it("should throw exception", function() {
+            var create = function() {
+                regexValidator.create(null);
             }
 
             assert.throws(create, /The 'pattern' value must be the Regex pattern to use./);
