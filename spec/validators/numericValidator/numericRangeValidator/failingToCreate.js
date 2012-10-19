@@ -2,8 +2,8 @@ var assert = require('chai').assert;
 var numericRangeValidator = require('./../../../testFixture').require('numericRangeValidator')
 
 describe('When you try to create numeric range validator', function() {
-    var MinMessage = /Minimum must be a number./;
-    var MaxMessage = /Maximum must be a number./;
+    var MinMessage = /The 'min' value must be a number./;
+    var MaxMessage = /The 'max' value must be a number./;
 
     describe('but minimum is not a number', function() {
         shouldThrowErrorWhenCreated('bob', 9, MinMessage);
@@ -30,7 +30,7 @@ describe('When you try to create numeric range validator', function() {
     });
 
     describe('but minimum is greater than maximum', function() {
-        shouldThrowErrorWhenCreated(50, 40, "Minimum must be less than maximum.");
+        shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
     });
 
     function createValidatorWrapper(config) {
