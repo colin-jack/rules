@@ -1,11 +1,11 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var regexValidator = require('./../../testFixture').require('regexValidator');
+var regularExpressionValidator = require('./../../testFixture').require('regularExpressionValidator');
 
 describe('regex validator', function() {
     var assertPassedValidation = function(value) {
         var config = { pattern : "[abcd]"};
-        var underTest = regexValidator.create(config);
+        var underTest = regularExpressionValidator.create(config);
         assert.isUndefined(underTest(value));
     };
 
@@ -36,7 +36,7 @@ describe('regex validator', function() {
     describe("When value has wrong case but case-insensitive flag is applied", function() {
         it("should pass validation", function() {
             var config = { pattern : "[abcd]", flags: "i"};
-            var underTest = regexValidator.create(config);
+            var underTest = regularExpressionValidator.create(config);
             assert.isUndefined(underTest('AB'));
         });
     });
@@ -44,7 +44,21 @@ describe('regex validator', function() {
     describe("When regular expression rather than string is passed in for pattern", function() {
         it("should pass validation", function() {
             var config = { pattern : /[ABCD]/ };
-            var underTest = regexValidator.create(config);
+            var underTest = regularExpressionValidator.create(config);
+            assert.isUndefined(underTest('ABCD'));
+        });
+    });
+
+    describe("When you pass in a regular expression object directly skipping config object", function() {
+        it("should pass validation", function() {
+            var underTest = regularExpressionValidator.create(/[ABCD]/);
+            assert.isUndefined(underTest('ABCD'));
+        });
+    });
+
+    describe("When you pass in a regular expression string directly skipping config object", function() {
+        it("should pass validation", function() {
+            var underTest = regularExpressionValidator.create('[ABCD]');
             assert.isUndefined(underTest('ABCD'));
         });
     });

@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var regexValidator = require('./../../testFixture').require('regexValidator');
+var regularExpressionValidator = require('./../../testFixture').require('regularExpressionValidator');
 
 describe('regex validator', function() {
     describe("When value has wrong case and no flags are used", function() {
@@ -22,7 +22,7 @@ describe('regex validator', function() {
     function assertFailsForExpectedReason(value) {
         var runValidatorWrapper = function() {
             var config = { pattern: "(AB)+" }
-            var underTest = regexValidator.create(config);
+            var underTest = regularExpressionValidator.create(config);
             return underTest(value);
         }
 

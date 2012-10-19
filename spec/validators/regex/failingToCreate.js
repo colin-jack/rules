@@ -1,11 +1,11 @@
 var assert = require('chai').assert;
-var regexValidator = require('./../../testFixture').require('regexValidator');
+var regularExpressionValidator = require('./../../testFixture').require('regularExpressionValidator');
 
 describe('regex validator', function() {
     describe("When config has unsupported values", function() {
         it("should throw exception", function() {
             var create = function() {
-                regexValidator.create({pattern: "foo", bob: "yes", bill: 5});
+                regularExpressionValidator.create({pattern: "foo", bob: "yes", bill: 5});
             }
 
 
@@ -18,7 +18,7 @@ describe('regex validator', function() {
     describe("When config is missing pattern", function() {
         it("should throw exception", function() {
             var create = function() {
-                regexValidator.create({ flags: "i" });
+                regularExpressionValidator.create({ flags: "i" });
             }
 
             assert.throws(create, /The 'pattern' value must be the Regex pattern to use./);
@@ -28,7 +28,7 @@ describe('regex validator', function() {
     describe("When config is null", function() {
         it("should throw exception", function() {
             var create = function() {
-                regexValidator.create(null);
+                regularExpressionValidator.create(null);
             }
 
             assert.throws(create, /The 'pattern' value must be the Regex pattern to use./);
@@ -38,7 +38,7 @@ describe('regex validator', function() {
     describe("When pattern is a regex but you also pass in flags", function() {
         it("should throw exception", function() {
             var create = function() {
-                regexValidator.create({ pattern: /[ab]/, flags: "i" });
+                regularExpressionValidator.create({ pattern: /[ab]/, flags: "i" });
             }
 
             assert.throws(create, /The flags cannot be used when pattern is a RegExp object./);
