@@ -1,6 +1,6 @@
 {
   "name": "validatron",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Small declarative validation framework.",
   "main": "index",
 
@@ -32,7 +32,7 @@
     "email": "colin.jack@gmail.com"
   },
 
-  "_id": "validatron@0.0.3",
+  "_id": "validatron@0.0.4",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.1.16",

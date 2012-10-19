@@ -9,16 +9,19 @@ You declare what a valid instance of your object would look like in terms of inv
 ```js
 var personSchema = {
     age: mustBe().populated().numeric( {min : 0, max: 130} ),
-    name: mustBe().populated(), 
+    name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
     weight: function() { this.populated().numeric(); }
 }
 ````
 #####CoffeeScript
 ```coffeescript
+# This schema is not showing how to validate a real address, its just an example that makes it easy to test the framework
 addressSchema = {
   streetOne: mustBe().populated()
-  streetTwo: -> @.populated()
+  streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 )
+  streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
   town: -> @.populated()
+  postCode: -> @.populated().matchFor(/.../)
 }
 ```
 Note the two styles in the schema, ```mustBe()..``` or a function where ```this``` is the validation fluent interface.

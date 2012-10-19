@@ -33,6 +33,10 @@ describe('When you try to create range validator', function() {
         shouldThrowErrorWhenCreated(50, 40, /The minimum length \(minLength\) must be less than maximum \(maxLength\)./);
     });
 
+     describe('but minimum is equal to maximum', function() {
+        shouldThrowErrorWhenCreated(50, 50, /The minimum length \(minLength\) must be less than maximum \(maxLength\)./);
+    });
+
     function shouldThrowErrorWhenCreated(minLength, maxLength, expectedMessage) {
         it('should throw exception', function() {
             var config = { minLength : minLength, maxLength : maxLength };

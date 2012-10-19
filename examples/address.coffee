@@ -15,11 +15,10 @@ invalidAddress = {
 
 addressSchema = {
   streetOne: mustBe().populated()
-  streetTwo: -> @.populated().string( minLength: 10, maxLength : 10 )
-  streetThree: -> @.populated().string( minLength : 10, maxLength: 20) 
+  streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 )
+  streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
   town: -> @.populated()
   postCode: -> @.populated().matchFor(ukPostCodeRegex)
-  # TODO: postcode using regex
 }
 
 result = validatron(invalidAddress, addressSchema);

@@ -33,6 +33,10 @@ describe('When you try to create numeric range validator', function() {
         shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
     });
 
+    describe('but minimum is same as maximum', function() {
+        shouldThrowErrorWhenCreated(50, 50, "Min must be less than max.");
+    });
+
     function createValidatorWrapper(config) {
         return function() {
             numericRangeValidator.create(config);
