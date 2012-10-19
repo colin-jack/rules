@@ -31,6 +31,12 @@ var runBasicTests = function(validationDefinitions) {
 
         shouldHaveSingleError(numericName, validationDefinitions.requiredString, "name", "not_a_string");
     });
+
+    // describe("When phone number property must match regex and does not", function() {
+    //     var invalidPhoneNumber = { "phoneNumber" : "0131 489 90" }
+
+    //     shouldHaveSingleError(invalidPhoneNumber, validationDefinitions.phoneNumberMustMatchRegex, "phoneNumber", "regex_not_matched");
+    // });
 };
 
 var validate = function(toValidate, definition) {

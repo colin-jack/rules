@@ -40,4 +40,12 @@ describe('regex validator', function() {
             assert.isUndefined(underTest('AB'));
         });
     });
+
+    describe("When regular expression rather than string is passed in for pattern", function() {
+        it("should pass validation", function() {
+            var config = { pattern : /[ABCD]/ };
+            var underTest = regexValidator.create(config);
+            assert.isUndefined(underTest('ABCD'));
+        });
+    });
 });
