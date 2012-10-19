@@ -4,15 +4,15 @@ var log = require('util').log,
     mustBe = require('./../lib/mustBe');
 
 var invalidPerson = { 
-    name: "", 
+    name: "Elmo", 
     age : -1, 
     address: null, 
-    weight: "bob" 
+    weight: 5 
 };
 
 var personSchema = {
     age: mustBe().populated().numeric( {min : 0, max: 130} ),
-    name: mustBe().populated(), // TODO - string
+    name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
     weight: function() { this.populated().numeric(); }
     // TODO - Address using the mapper from address.coffee
 }
