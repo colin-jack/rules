@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
 var regexValidator = require('./../../testFixture').require('regexValidator');
 
-describe('numeric validator', function() {
+describe('regex validator', function() {
     describe("When value has wrong case and no flags are used", function() {
         assertFailsForExpectedReason("ab");
     });
