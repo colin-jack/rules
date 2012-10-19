@@ -1,6 +1,6 @@
 validatron
 ==========
-Small declarative validation framework.
+Very very early version of a small declarative validation framework.
 
 ### Samples
 You declare what a valid instance of your object would look like in terms of invariants, a schema if you will:
