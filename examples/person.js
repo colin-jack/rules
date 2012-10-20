@@ -11,9 +11,11 @@ var invalidPerson = {
 };
 
 var personSchema = {
+    // TODO: rename
     age: mustBe().populated().numeric( {min : 0, max: 130} ),
     name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
     weight: function() { this.populated().numeric(); }
+    // TODO: include date of birth
     // TODO - Address using the mapper from address.coffee
 }
 
