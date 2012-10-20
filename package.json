@@ -14,7 +14,8 @@
   },
 
   "dependencies": {
-    "underscore": "*"
+    "underscore": "*",
+    "moment": "*"
   },
 
   "devDependencies": {
