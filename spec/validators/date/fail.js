@@ -19,6 +19,14 @@ describe('date validator', function() {
         assertFailsForExpectedReason(false);
     });
 
+    describe("When true false is used", function() {
+        assertFailsForExpectedReason(false);
+    });
+
+    describe("When unsuitable array is used", function() {
+        assertFailsForExpectedReason([2001, 10, 100]);
+    });
+
     // NOTE - could support this but seems pointless
     describe("When 5 is used", function() {
         assertFailsForExpectedReason(5);
