@@ -37,6 +37,18 @@ var runBasicTests = function(validationDefinitions) {
 
         shouldHaveSingleError(invalidPhoneNumber, validationDefinitions.phoneNumberMustMatchRegex, "phoneNumber", "regex_not_matched");
     });
+
+    describe("When date of birth does not need to be populated and is not", function() {
+        var noDateOfBirth = { };
+
+        shouldPassValidation(noDateOfBirth, validationDefinitions.dateOptional)
+    });
+
+    describe("When date of birth must be a date but is invalid", function() {
+        var noDateOfBirth = { dateOfBirth: "2005, 12, 899"};
+
+        shouldHaveSingleError(noDateOfBirth, validationDefinitions.dateRequired, "dateOfBirth", "not_a_date")
+    });
 };
 
 var validate = function(toValidate, definition) {

@@ -17,6 +17,12 @@ describe('validatron - declarative with functions', function() {
         },
         phoneNumberMustMatchRegex: {
             phoneNumber: function() { this.matchFor({ pattern: /^\(?0( *\d\)?){9,10}$/ }) }
+        },
+        dateRequired : {
+            dateOfBirth: function() { this.populated().date(); }
+        },
+        dateOptional: {
+            dateOfBirth: function() { this.date(); }
         }
 	};
 
