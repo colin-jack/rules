@@ -1,6 +1,6 @@
 validatron
 ==========
-Early version of a small declarative validation framework. Instead of trying handle all your validation this framework focussing on making it easy to declare invariants for incoming data and so takes on the role of schema and simple data validation. 
+Early version of a small declarative validation/schema framework. Instead of trying handle all your validation this framework focussing on making it easy to declare invariants for incoming data and so takes on the role of schema and simple data validation. 
 
 ### Samples
 You create an object to declare the invariants you want to apply. A fluent interface makes it easy to specify the invariants for each property.
@@ -27,12 +27,12 @@ addressSchema = {
 As shown you can access this fluent interface using twp approaces:
 
 * [1] mustBe() - Acts as the entry point to the fluent interface.
-* [2] function - ```this``` inside the function being the entry point to the fluent interface.
+* [2] function - 'this' inside the function being the entry point to the fluent interface.
 
 #####Triggering validation
 You trigger validation using:
 
-    result = validatron(invalidAddress, addressSchema)
+    result = validatron(toValidate, schema)
 
 The returned object has the per-property details of any validation failures, e.g.:
 
