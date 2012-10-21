@@ -13,9 +13,9 @@ var invalidPerson = {
 };
 
 var personSchema = {
-    name:        mustBe().populated().string( { minLength: 5, maxLength: 20} ),
-    weight:      mustBe().populated().numeric({min : 0, max: 130}),
-    dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
+    name        : mustBe().populated().string( { minLength: 5, maxLength: 20} ),
+    weight      : mustBe().populated().numeric({min : 0, max: 130}),
+    dateOfBirth : mustBe().date({ before: now.subtract("years", 1) })
     // TODO - Address using the mapper from address.coffee
 }
 

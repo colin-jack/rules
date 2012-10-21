@@ -48,6 +48,8 @@ The project comes with examples in the examples directory:
     node examples/person
     coffee examples/address
 
+Note that if you are using sublime you can get the alignment shown in the person example using the (sublime text alignment package)[http://wbond.net/sublime_packages/alignment].
+
 ### Tests
 First install mocha: 
 
