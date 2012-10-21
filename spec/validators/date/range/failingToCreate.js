@@ -1,59 +1,72 @@
-// var assert = require('chai').assert;
-// var dateRangeValidator = require('./../../../testFixture').require('dateRangeValidator')
+var assert = require('chai').assert;
+var now = lib.require('now');
+var moment = require('moment');
+var dateRangeValidator = lib.require('dateRangeValidator');
 
-// describe('date range validator', function() {
-//     describe('When you try to create numeric range validator', function() {
-//         var MinMessage = /The 'min' value must be a number./;
-//         var MaxMessage = /The 'max' value must be a number./;
+describe('date range validator', function() {
+    describe('When you try to create date range range validator', function() {
+        var NotParsable = /When included the before\/after values should be dates or parsable as dates./;
 
-//         describe('but minimum is not a number', function() {
-//             shouldThrowErrorWhenCreated('bob', 9, MinMessage);
-//         });
+        describe('but before is a number', function() {
+            shouldThrowErrorWhenCreated(5, moment(), NotParsable);
+        });
 
-//         describe('but minimum is null', function() {
-//             shouldThrowErrorWhenCreated(null, 5, MinMessage);
-//         });
+        describe('but before is an array', function() {
+            shouldThrowErrorWhenCreated([2010, 11, 11], moment(), NotParsable);
+        })
 
-//         describe('but minimum is NaN', function() {
-//             shouldThrowErrorWhenCreated(NaN, 9, MinMessage);
-//         });
+        describe('but before is a boolean', function() {
+            shouldThrowErrorWhenCreated(moment(), moment(), NotParsable);
+        });
 
-//         describe('but maximum is not a number', function() {
-//             shouldThrowErrorWhenCreated(0, "bill", MaxMessage);
-//         });
+        // describe('but before is null', function() {
+        //     shouldThrowErrorWhenCreated(null, 5, NotParsable);
+        // });
 
-//         describe('but maximum is null', function() {
-//             shouldThrowErrorWhenCreated(5, null, MaxMessage);
-//         });
+        // describe('but before is NaN', function() {
+        //     shouldThrowErrorWhenCreated(NaN, 9, NotParsable);
+        // });
 
-//         describe('but maximum is NaN', function() {
-//             shouldThrowErrorWhenCreated(0, NaN, MaxMessage);
-//         });
+        // describe('but after is a number', function() {
+        //     shouldThrowErrorWhenCreated(0, "bill", NotParsable);
+        // });
 
-//         describe('but minimum is greater than maximum', function() {
-//             shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
-//         });
+        // describe('but after is null', function() {
+        //     shouldThrowErrorWhenCreated(5, null, NotParsable);
+        // });
 
-//         describe('but minimum is same as maximum', function() {
-//             shouldThrowErrorWhenCreated(50, 50, "Min must be less than max.");
-//         });
+        // describe('but after is NaN', function() {
+        //     shouldThrowErrorWhenCreated(0, NaN, NotParsable);
+        // });
 
-//         function createValidatorWrapper(config) {
-//             return function() {
-//                 dateRangeValidator.create(config);
-//             }
-//         }
+        // describe('but minimum is greater than maximum', function() {
+        //     shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
+        // });
 
-//         function shouldThrowErrorWhenCreated(minimum, maximum, expectedMessage) {
-//             it('should throw exception', function() {
-//                 var config = { min : minimum, max : maximum };
-//                 assert.throws(createValidatorWrapper(config), expectedMessage);
-//             })
-//         };
-//     });
-// });
+        // describe('but minimum is same as maximum', function() {
+        //     shouldThrowErrorWhenCreated(50, 50, "Min must be less than max.");
+        // });
+
+        function createValidatorWrapper(config) {
+            return function() {
+                dateRangeValidator.create(config);
+            }
+        }
+
+        function shouldThrowErrorWhenCreated(beforeValue, afterValue, expectedMessage) {
+            it('should throw exception', function() {
+                debugger;
+                var beforeFunc = function() { return beforeValue; };
+                var afterFunc = function() { return afterValue; };
+                var config = { before : beforeFunc, after : afterFunc };
+                assert.throws(createValidatorWrapper(config), expectedMessage);
+            })
+        };
+    });
+});
 
 // // TODO - Pass in numeric
 // // TODO - Pass in moment
 // // TODO - Pass in string
 // // TODO - Pass in Date
+// TODO - Inappropriate arguments to numeric validator

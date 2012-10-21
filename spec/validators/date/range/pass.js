@@ -53,12 +53,12 @@ describe('date range validator', function() {
 			shouldPassValidation(new moment(), rangeConfig);
 		});
 
-		describe('should pass validation when given current date as array', function() {
-			var currentDate = new Date();
-			var dateAsArray = [currentDate.getHours(), currentDate.getMonth(), currentDate.getDay()]
+		// describe('should pass validation when given current date as array', function() {
+		// 	var currentDate = new Date();
+		// 	var dateAsArray = [currentDate.getHours(), currentDate.getMonth(), currentDate.getDay()]
 
-			shouldPassValidation(dateAsArray, rangeConfig);
-		});
+		// 	shouldPassValidation(dateAsArray, rangeConfig);
+		// });
 
 		describe('should pass validation when given current date as moment', function() {
 			shouldPassValidation(new moment(), rangeConfig);
