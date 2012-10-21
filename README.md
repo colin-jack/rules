@@ -1,8 +1,6 @@
 validatron
 ==========
-Very very early version of a small declarative validation framework. 
-
-This framework is not intended to handle all your validation, instead it aims to make it easy to declare invariants for incoming data and so takes on the role of schema and simple data validation. 
+Early version of a small declarative validation framework. Instead of trying handle all your validation this framework focussing on making it easy to declare invariants for incoming data and so takes on the role of schema and simple data validation. 
 
 ### Samples
 You declare what a valid instance of your object would look like in terms of invariants, a schema if you will:

@@ -3,8 +3,8 @@ var validatorTestUtil = require('./../testUtil');
 var dateValidator = require('./../../testFixture').require('dateValidator');
 
 describe('date validator', function() {
-    describe("When value 'bob' is used", function() {
-        assertFailsForExpectedReason("bob");
+    describe("When value 'frank' is used", function() {
+        assertFailsForExpectedReason("frank");
     });
 
     describe("When value '2001, 10, 105' is used", function() {
@@ -49,6 +49,7 @@ describe('date validator', function() {
     function assertFailsForExpectedReason(value) {
         var runValidatorWrapper = function() {
             var underTest = dateValidator.create();
+            debugger;
             return underTest(value);
         }
 

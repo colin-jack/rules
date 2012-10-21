@@ -1,35 +1,21 @@
 var log = require('util').log,
     inspect = require('util').inspect,
     validatron = require('./../lib/validatron'),
-    mustBe = require('./../lib/mustBe');
+    mustBe = require('./../lib/mustBe'),
+    now = require('./../lib/validators/date/now'),
+    moment = require('moment');
 
 var invalidPerson = { 
     name: "Elmo", 
-    age : -1, 
+    dateOfBirth : moment(), 
     address: null, 
     weight: 5 
 };
 
-var now = {
-   add: function() {
-     console.log("here")
-    },
-
-   subtract: function() {
-     console.log("here")
-    }
- }
-
-
 var personSchema = {
-    // TODO: rename
-    age: mustBe().populated().numeric( {min : 0, max: 130} ),
     name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
-    weight: function() { this.populated().numeric(); },
-    // dateOfBirth: mustBe().date({  before: now.add("years", 5), 
-    //                               after: now.subtract("years", -5) 
-    //                           })
-    // TODO: include date of birth
+    weight: mustBe().populated().numeric({min : 0, max: 130}),
+    dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
     // TODO - Address using the mapper from address.coffee
 }
 
