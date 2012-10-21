@@ -8,9 +8,9 @@ You declare what a valid instance of your object would look like in terms of inv
 #####JavaScript
 ```js
 var personSchema = {
-    age: mustBe().populated().numeric( {min : 0, max: 130} ),
-    name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
-    weight: function() { this.populated().numeric(); }
+    name:        mustBe().populated().string( { minLength: 5, maxLength: 20} ),
+    weight:      mustBe().populated().numeric({min : 0, max: 130}),
+    dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
 }
 ````
 #####CoffeeScript
