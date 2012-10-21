@@ -1,7 +1,7 @@
 {
-  "name": "validatron",
+  "name": "invariants",
   "version": "0.0.7",
-  "description": "Small declarative validation framework.",
+  "description": "Small declarative validation framework focussed on making it easy to declare invaraints.",
   "main": "index",
 
   "author": {
@@ -10,7 +10,7 @@
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/colin-jack/validatron.git"
+    "url": "https://github.com/colin-jack/invariants.git"
   },
 
   "dependencies": {
@@ -33,7 +33,7 @@
     "email": "colin.jack@gmail.com"
   },
 
-  "_id": "validatron@0.0.7",
+  "_id": "invariants@0.0.7",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.1.16",
