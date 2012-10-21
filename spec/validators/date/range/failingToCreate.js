@@ -8,69 +8,69 @@ describe('date range validator', function() {
         var NotParsable = /When included the before\/after values should be dates or parsable as dates./;
 
         describe('but before is a number', function() {
-            shouldThrowErrorWhenCreated(5, moment());
+            shouldThrowErrorWhenCreated(5, moment(), NotParsable);
         });
 
         describe('but before is a Date', function() {
-            shouldThrowErrorWhenCreated(new Date(), moment());
+            shouldThrowErrorWhenCreated(new Date(), moment(), NotParsable);
         });
 
         describe('but before is a date as a string', function() {
-            shouldThrowErrorWhenCreated(new Date().toUTCString(), moment());
+            shouldThrowErrorWhenCreated(new Date().toUTCString(), moment(), NotParsable);
         });
 
         describe('but before is an array', function() {
-            shouldThrowErrorWhenCreated([2010, 11, 11], moment());
+            shouldThrowErrorWhenCreated([2010, 11, 11], moment(), NotParsable);
         })
 
         describe('but before is a boolean', function() {
-            shouldThrowErrorWhenCreated(true, moment());
+            shouldThrowErrorWhenCreated(true, moment(), NotParsable);
         });
 
         describe('but before is null', function() {
-            shouldThrowErrorWhenCreated(null, moment());
+            shouldThrowErrorWhenCreated(null, moment(), NotParsable);
         });
 
         describe('but before is NaN', function() {
-            shouldThrowErrorWhenCreated(NaN, moment());
+            shouldThrowErrorWhenCreated(NaN, moment(), NotParsable);
         });
 
         describe('but after is a number', function() {
-            shouldThrowErrorWhenCreated(moment(),5 );
+            shouldThrowErrorWhenCreated(moment(), 5, NotParsable);
         });
 
         describe('but after is an array', function() {
-            shouldThrowErrorWhenCreated(moment(), [2010, 11, 11]);
+            shouldThrowErrorWhenCreated(moment(), [2010, 11, 11], NotParsable);
         })
 
         describe('but after is a boolean', function() {
-            shouldThrowErrorWhenCreated(moment(), true);
+            shouldThrowErrorWhenCreated(moment(), true, NotParsable);
         });
 
         describe('but after is null', function() {
-            shouldThrowErrorWhenCreated(moment(), null);
+            shouldThrowErrorWhenCreated(moment(), null, NotParsable);
         });
 
         describe('but after is NaN', function() {
-            shouldThrowErrorWhenCreated(moment(), NaN);
+            shouldThrowErrorWhenCreated(moment(), NaN, NotParsable);
         });
 
          describe('but after is a Date', function() {
-            shouldThrowErrorWhenCreated(moment(), new Date());
+            shouldThrowErrorWhenCreated(moment(), new Date(), NotParsable);
         });
 
         describe('but after is a date as a string', function() {
-            shouldThrowErrorWhenCreated(moment(), new Date().toUTCString());
+            shouldThrowErrorWhenCreated(moment(), new Date().toUTCString(), NotParsable);
         });
 
+        describe('but after is greater than before', function() {
+            var fiveDays = moment().add("days", 5);
+            shouldThrowErrorWhenCreated(moment(), fiveDays, "The before value must be later than the after value.");
+        });
 
-        // describe('but minimum is greater than maximum', function() {
-        //     shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
-        // });
-
-        // describe('but minimum is same as maximum', function() {
-        //     shouldThrowErrorWhenCreated(50, 50, "Min must be less than max.");
-        // });
+          describe('but after is equal to before', function() {
+            shouldThrowErrorWhenCreated(moment(), moment(), "The before value must be later than the after value.");
+        });
 
         function createValidatorWrapper(config) {
             return function() {
@@ -78,20 +78,14 @@ describe('date range validator', function() {
             }
         }
 
-        function shouldThrowErrorWhenCreated(beforeValue, afterValue) {
+        function shouldThrowErrorWhenCreated(beforeValue, afterValue, expectedMessage) {
             it('should throw exception', function() {
-                debugger;
                 var beforeFunc = function() { return beforeValue; };
                 var afterFunc = function() { return afterValue; };
+
                 var config = { before : beforeFunc, after : afterFunc };
-                assert.throws(createValidatorWrapper(config), NotParsable);
+                assert.throws(createValidatorWrapper(config), expectedMessage);
             })
         };
     });
 });
-
-// // TODO - Pass in numeric
-// // TODO - Pass in moment
-// // TODO - Pass in string
-// // TODO - Pass in Date
-// TODO - Inappropriate arguments to numeric validator
