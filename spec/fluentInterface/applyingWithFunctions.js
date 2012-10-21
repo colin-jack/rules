@@ -26,7 +26,7 @@ describe('validatron - declarative with functions', function() {
             dateOfBirth: function() { this.date(); }
         },
         dateOfBirthMoreThanYearAgo: {
-            dateOfBirth: function() { this.date( { after: now.add("years", 1)} ); }
+            dateOfBirth: function() { this.date( { before: now.add("years", 1)} ); }
         }
 	};
 
