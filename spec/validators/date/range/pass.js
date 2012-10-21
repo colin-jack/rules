@@ -36,9 +36,9 @@ describe('date range validator', function() {
 		shouldBeHappyWithCurrentTime(twoYearsPastOneYearFuture);
 	});
 
-	function shouldBeHappyWithCurrentTime(validRange) {
+	function shouldBeHappyWithCurrentTime(rangeConfig) {
 		describe('should pass validation when given current date as number', function() {
-			shouldPassValidation(Date.now(), validRange);
+			shouldPassValidation(Date.now(), rangeConfig);
 		});
 
 		describe('should pass validation when given current date as string', function() {
@@ -61,7 +61,7 @@ describe('date range validator', function() {
 		});
 
 		describe('should pass validation when given current date as moment', function() {
-			shouldPassValidation(currentTime, rangeConfig);
+			shouldPassValidation(new moment(), rangeConfig);
 		});
 	};
 

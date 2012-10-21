@@ -12,6 +12,13 @@ describe('date range validator', function() {
         assertFailsForExpectedReason(fiveYearsTime, validUpToTwoYears, "The date is too far in the future.");
     });
 
+    describe('When date is too far in past', function() {
+        var validUpToTwoYears = { after: now.subtract("hours", 5)}
+        var oneYearInpast = moment().subtract("years", 1);
+
+        assertFailsForExpectedReason(oneYearInpast, validUpToTwoYears, "The date is too far in the past.");
+    });
+
 //     describe('When the value is greater than maximum', function() {
 //         assertFailsForExpectedReason(20, { max: 15 }, "The value cannot be greater than 15.");
 //     });
