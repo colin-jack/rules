@@ -8,15 +8,17 @@ describe('date range validator', function() {
     describe('When date is too far in future', function() {
         var validUpToTwoYears = { before: now.add("years", 2)}
         var fiveYearsTime = moment().add("years", 5);
+        var expectedMessage = "The date must be before '" + moment().add("years", 2).toString() + "'";
 
-        assertFailsForExpectedReason(fiveYearsTime, validUpToTwoYears, "The date is too far in the future.");
+        assertFailsForExpectedReason(fiveYearsTime, validUpToTwoYears, expectedMessage);
     });
 
     describe('When date is too far in past', function() {
         var validUpToTwoYears = { after: now.subtract("hours", 5)}
         var oneYearInpast = moment().subtract("years", 1);
+        var expectedMessage = "The date must be after '" + moment().subtract("hours", 5).toString() + "'";
 
-        assertFailsForExpectedReason(oneYearInpast, validUpToTwoYears, "The date is too far in the past.");
+        assertFailsForExpectedReason(oneYearInpast, validUpToTwoYears, expectedMessage);
     });
 
     function assertFailsForExpectedReason(value, config, expectedMessage) {
