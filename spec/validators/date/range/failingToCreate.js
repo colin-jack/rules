@@ -1,0 +1,59 @@
+// var assert = require('chai').assert;
+// var dateRangeValidator = require('./../../../testFixture').require('dateRangeValidator')
+
+describe('date range validator', function() {
+// describe('When you try to create numeric range validator', function() {
+//     var MinMessage = /The 'min' value must be a number./;
+//     var MaxMessage = /The 'max' value must be a number./;
+
+//     describe('but minimum is not a number', function() {
+//         shouldThrowErrorWhenCreated('bob', 9, MinMessage);
+//     });
+
+//     describe('but minimum is null', function() {
+//         shouldThrowErrorWhenCreated(null, 5, MinMessage);
+//     });
+
+//     describe('but minimum is NaN', function() {
+//         shouldThrowErrorWhenCreated(NaN, 9, MinMessage);
+//     });
+
+//     describe('but maximum is not a number', function() {
+//         shouldThrowErrorWhenCreated(0, "bill", MaxMessage);
+//     });
+
+//     describe('but maximum is null', function() {
+//         shouldThrowErrorWhenCreated(5, null, MaxMessage);
+//     });
+
+//     describe('but maximum is NaN', function() {
+//         shouldThrowErrorWhenCreated(0, NaN, MaxMessage);
+//     });
+
+//     describe('but minimum is greater than maximum', function() {
+//         shouldThrowErrorWhenCreated(50, 40, "Min must be less than max.");
+//     });
+
+//     describe('but minimum is same as maximum', function() {
+//         shouldThrowErrorWhenCreated(50, 50, "Min must be less than max.");
+//     });
+
+//     function createValidatorWrapper(config) {
+//         return function() {
+//             dateRangeValidator.create(config);
+//         }
+//     }
+
+//     function shouldThrowErrorWhenCreated(minimum, maximum, expectedMessage) {
+//         it('should throw exception', function() {
+//             var config = { min : minimum, max : maximum };
+//             assert.throws(createValidatorWrapper(config), expectedMessage);
+//         })
+//     };
+// });
+});
+
+// TODO - Pass in numeric
+// TODO - Pass in moment
+// TODO - Pass in string
+// TODO - Pass in Date

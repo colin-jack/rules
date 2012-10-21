@@ -10,11 +10,25 @@ var invalidPerson = {
     weight: 5 
 };
 
+var now = {
+   add: function() {
+     console.log("here")
+    },
+
+   subtract: function() {
+     console.log("here")
+    }
+ }
+
+
 var personSchema = {
     // TODO: rename
     age: mustBe().populated().numeric( {min : 0, max: 130} ),
     name: mustBe().populated().string( { minLength: 5, maxLength: 20} ),
-    weight: function() { this.populated().numeric(); }
+    weight: function() { this.populated().numeric(); },
+    // dateOfBirth: mustBe().date({  before: now.add("years", 5), 
+    //                               after: now.subtract("years", -5) 
+    //                           })
     // TODO: include date of birth
     // TODO - Address using the mapper from address.coffee
 }

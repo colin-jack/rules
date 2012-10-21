@@ -13,12 +13,24 @@ invalidAddress = {
   postCode: "EHB 2AD" 
 }
 
+# now = {
+#   add: () -> 
+#     console.log("here")
+
+#   subtract: () -> 
+#     console.log("here")
+
+# }
+
 addressSchema = {
   streetOne: mustBe().populated()
   streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 )
   streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
   town: -> @.populated()
   postCode: -> @.populated().matchFor(ukPostCodeRegex)
+  #dateOfBirth: -> @.date( before: now.plus(years(5)), after: years(-5))
+
+  #dateOfBirth: -> @.date(before: now.add("years", 5), after: now.subtract("years", -5))
 }
 
 result = validatron(invalidAddress, addressSchema);
