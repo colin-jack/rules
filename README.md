@@ -55,6 +55,16 @@ The project comes with examples in the examples directory:
 
 Note that if you are using sublime you can get the alignment shown in the person example using the [sublime text alignment package](http://wbond.net/sublime_packages/alignment).
 
+### Validators
+The framework comes with several validators, to understand them further you may want to run the examples.
+
+* ```populated```
+* ```array```
+* ```numeric``` - Optionally you can also pass in object with ```min``` and/or ```max``` values
+* ```matchFor``` - You can pass in an object with ```pattern``` and optionally ```flags```, alternatively you can pass in the ```RegExp``` object to use.
+* ```date``` - Optionally you can specify that the date must be ```before``` and/or ```after``` specified dates. To make this easier you use ```now.add``` or ```now.subtract``` to specify the dates to use for ```before```/```after```.
+* ```string``` - Optionally you can pass in ```minLength``` and/or ```maxLength```.
+
 ### Tests
 First install mocha: 
 

@@ -19,8 +19,8 @@ describe('string length validator', function() {
     describe('When asking if it handles', function() {
         it('says yes if has minLength or maxLength', function() {
             assert.isTrue(stringLengthValidator.handles( {minLength: 5} ));
-            //assert.isTrue(stringLengthValidator.handles( {maxLength: 5} ));
-            //assert.isFalse(stringLengthValidator.handles( {bob: 5} ));
+            assert.isTrue(stringLengthValidator.handles( {maxLength: 5} ));
+            assert.isFalse(stringLengthValidator.handles( {bob: 5} ));
         });
     });
 });
