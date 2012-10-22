@@ -14,7 +14,16 @@ describe('rules - apply', function() {
     describe('When you apply a simple set of rules to an object that meets them', function() {
         it('should pass validation', function() {
             var valid = { name: "bob", dateOfBirth: Date(-500) };
-            rules.apply(valid, simpleRules);
+            var result = rules.apply(valid, simpleRules);
+            assert.equal(0, Object.keys(result).length);
+        });
+    });
+
+    describe('When you apply a simple set of rules to an object that does not meet them', function() {
+        it('should fail validation', function() {
+            var invalid = { name: "" };
+            var result = rules.apply(invalid, simpleRules);
+            assert.isDefined(2, Object.keys(result).length);
         });
     });
 });
