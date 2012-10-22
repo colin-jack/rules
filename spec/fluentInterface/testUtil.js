@@ -14,47 +14,47 @@ var runBasicTests = function(validationDefinitions) {
         shouldHaveSingleError(withNoAge, validationDefinitions.numericRequiredAge, "age", "not_populated")
     });
 
-    // describe("When numeric age property does not need to be populated and is not", function() {
-    //     var withNoAge = { "age" : undefined};
+    describe("When numeric age property does not need to be populated and is not", function() {
+        var withNoAge = { "age" : undefined};
 
-    //     shouldPassValidation(withNoAge, validationDefinitions.numericOptionalAge)
-    // });
+        shouldPassValidation(withNoAge, validationDefinitions.numericOptionalAge)
+    });
 
-    // describe("When numeric age property must be in range and is not", function() {
-    //     var negativeAge = { "age" : -1 }
+    describe("When numeric age property must be in range and is not", function() {
+        var negativeAge = { "age" : -1 }
 
-    //     shouldHaveSingleError(negativeAge, validationDefinitions.numericAgeWithRange, "age", "outside_range");
-    // });
+        shouldHaveSingleError(negativeAge, validationDefinitions.numericAgeWithRange, "age", "outside_range");
+    });
 
-    // describe("When name property must be string and is not", function() {
-    //     var numericName = { "name" : 5 }
+    describe("When name property must be string and is not", function() {
+        var numericName = { "name" : 5 }
 
-    //     shouldHaveSingleError(numericName, validationDefinitions.requiredString, "name", "not_a_string");
-    // });
+        shouldHaveSingleError(numericName, validationDefinitions.requiredString, "name", "not_a_string");
+    });
 
-    // describe("When phone number property must match regex and does not", function() {
-    //     var invalidPhoneNumber = { "phoneNumber" : "0131 489 90" }
+    describe("When phone number property must match regex and does not", function() {
+        var invalidPhoneNumber = { "phoneNumber" : "0131 489 90" }
 
-    //     shouldHaveSingleError(invalidPhoneNumber, validationDefinitions.phoneNumberMustMatchRegex, "phoneNumber", "regex_not_matched");
-    // });
+        shouldHaveSingleError(invalidPhoneNumber, validationDefinitions.phoneNumberMustMatchRegex, "phoneNumber", "regex_not_matched");
+    });
 
-    // describe("When date of birth does not need to be populated and is not", function() {
-    //     var noDateOfBirth = { };
+    describe("When date of birth does not need to be populated and is not", function() {
+        var noDateOfBirth = { };
 
-    //     shouldPassValidation(noDateOfBirth, validationDefinitions.dateOptional)
-    // });
+        shouldPassValidation(noDateOfBirth, validationDefinitions.dateOptional)
+    });
 
-    // describe("When date of birth must be a date but is invalid", function() {
-    //     var noDateOfBirth = { dateOfBirth: "2005, 12, 899"};
+    describe("When date of birth must be a date but is invalid", function() {
+        var noDateOfBirth = { dateOfBirth: "2005, 12, 899"};
 
-    //     shouldHaveSingleError(noDateOfBirth, validationDefinitions.dateRequired, "dateOfBirth", "not_a_date")
-    // });
+        shouldHaveSingleError(noDateOfBirth, validationDefinitions.dateRequired, "dateOfBirth", "not_a_date")
+    });
 
-    // describe("When date of birth must be atleast one year ago but is not", function() {
-    //     var bornNow = { dateOfBirth: new Date() };
+    describe("When date of birth must be atleast one year ago but is not", function() {
+        var bornNow = { dateOfBirth: new Date() };
 
-    //     shouldHaveSingleError(bornNow, validationDefinitions.dateOfBirthMoreThanYearAgo, "dateOfBirth", "outside_date_range")
-    // });
+        shouldHaveSingleError(bornNow, validationDefinitions.dateOfBirthMoreThanYearAgo, "dateOfBirth", "outside_date_range")
+    });
 
     describe("When date of birth must be atleast one year ago and it is actually a long time in the past", function() {
         var ancient = { dateOfBirth: new Date(-500000) };

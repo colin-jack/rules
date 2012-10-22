@@ -26,7 +26,10 @@ describe('validatron - declarative', function() {
             dateOfBirth: mustBe().date()
         },
         dateOfBirthMoreThanYearAgo: {
-            dateOfBirth: mustBe().date({ before: now.add("years", 1) })
+            dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
+        },
+        requiredArrayOfFriends : {
+            friends : mustBe().populated().array() 
         }
 	};
 

@@ -1,4 +1,4 @@
-validatron
+rules (node.js)
 ==========
 Early version of a small declarative rules framework desing primarily for use whne validating incoming data, such as JSON coming into services.
 
@@ -58,7 +58,7 @@ Note that if you are using sublime you can get the alignment shown in the person
 ### Validators
 The framework comes with several validators, to understand them further you may want to run the examples.
 
-* ```populated```
+* ```populated``` - Checks the value is not ```null```, ```undefined```, ```""```, or an empty array.
 * ```array```
 * ```numeric``` - Optionally you can also pass in object with ```min``` and/or ```max``` values
 * ```matchFor``` - You can pass in an object with ```pattern``` and optionally ```flags```, alternatively you can pass in the ```RegExp``` object to use.

@@ -26,10 +26,10 @@ describe('validatron - declarative with functions', function() {
             dateOfBirth: function() { this.date(); }
         },
         dateOfBirthMoreThanYearAgo: {
-            dateOfBirth: function() { this.date( { before: now.add("years", 1)} ); }
+            dateOfBirth: function() { this.date( { before: now.subtract("years", 1)} ); }
         },
-        arrayOfFriends : {
-            friends : []
+        requiredArrayOfFriends : {
+            friends : function() { this.populated().array() }
         }
 	};
 
