@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var validatron = require('./../testFixture').require('validatron');
+var rules = require('./../testFixture').require('rules');
 
 // When using the declarative approach we have two ways of specifying how to validate:
 //    age: mustBe().populated()
@@ -82,7 +82,7 @@ var runBasicTests = function(validationDefinitions) {
 };
 
 var validate = function(toValidate, definition) {
-    return validatron(toValidate, definition);
+    return rules.apply(toValidate, definition);
 };
 
 var shouldHaveSingleError = function(toValidate, validationDefinition, property, error) {

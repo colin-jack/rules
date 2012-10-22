@@ -34,7 +34,7 @@ As shown you can access this fluent interface using twp approaces:
 #####Triggering validation
 You trigger validation using:
 
-    result = validatron(person, personRules)
+    result = rules.apply(person, personRules)
 
 The returned object has the per-property details of any validation failures, e.g.:
 

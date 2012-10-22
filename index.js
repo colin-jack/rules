@@ -1,5 +1,5 @@
 module.exports = {
-    validatron: require('./lib/validatron'),
+    rules: require('./lib/rules'),
     mustBe: require('./lib/mustBe'),
     now: require('./lib/validators/date/now')
 }

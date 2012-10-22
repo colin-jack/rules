@@ -2,7 +2,7 @@ var testUtil = require('./testUtil')
 var mustBe = lib.require('mustBe'),
     now = lib.require('now');
 
-describe('validatron - declarative', function() {
+describe('rules - declarative', function() {
 	var validationDefinitions = {
 		numericRequiredAge : {
 			age : mustBe().populated().numeric(),

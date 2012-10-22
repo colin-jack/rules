@@ -1,6 +1,6 @@
 log = require('util').log
 inspect = require('util').inspect
-validatron = require('./../lib/validatron')
+rules = require('./../lib/rules')
 mustBe = require('./../lib/mustBe')
 
 ukPostCodeRegex = /(GIR 0AA|[A-PR-UWYZ]([0-9][0-9A-HJKPS-UW]?|[A-HK-Y][0-9][0-9ABEHMNPRV-Y]?) [0-9][ABD-HJLNP-UW-Z]{2})/
@@ -13,26 +13,14 @@ invalidAddress = {
   postCode: "EHB 2AD" 
 }
 
-# now = {
-#   add: () -> 
-#     console.log("here")
-
-#   subtract: () -> 
-#     console.log("here")
-
-# }
-
 addressSchema = {
-  streetOne: mustBe().populated()
-  streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 )
-  streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
-  town: -> @.populated()
-  postCode: -> @.populated().matchFor(ukPostCodeRegex)
-  #dateOfBirth: -> @.date( before: now.plus(years(5)), after: years(-5))
-
-  #dateOfBirth: -> @.date(before: now.add("years", 5), after: now.subtract("years", -5))
+  streetOne   : mustBe().populated()
+  streetTwo   : -> @.populated().string( minLength: 10, maxLength : 50 )
+  streetThree : -> @.populated().string( minLength : 10, maxLength: 50) 
+  town        : -> @.populated()
+  postCode    : -> @.populated().matchFor(ukPostCodeRegex)
 }
 
-result = validatron(invalidAddress, addressSchema);
+result = rules.apply(invalidAddress, addressSchema);
 
 log(inspect(result));
