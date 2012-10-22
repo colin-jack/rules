@@ -1,13 +1,15 @@
 validatron
 ==========
-Early version of a small declarative validation/schema framework. Instead of trying handle all your validation this framework focussing on making it easy to declare invariants for incoming data and so takes on the role of schema and simple data validation. 
+Early version of a small declarative rules framework desing primarily for use whne validating incoming data, such as JSON coming into services.
+
+Instead of trying handle all your validation this framework focussing on making it easy to declare data-level invariants, similiar to the sorts of rules you could put in a schema.
 
 ### Samples
 You create an object to declare the invariants you want to apply. A fluent interface makes it easy to specify the invariants for each property.
 
 #####JavaScript
 ```js
-var personSchema = {
+var personRules = {
     name:        mustBe().populated().string( { minLength: 5, maxLength: 20} ), [1]
     weight:      mustBe().populated().numeric({min : 0, max: 130}),
     dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
@@ -16,7 +18,7 @@ var personSchema = {
 #####CoffeeScript
 ```coffeescript
 # This schema is not showing how to validate a real address, its just an example that makes it easy to test the framework
-addressSchema = {
+addressRules = {
   streetOne: mustBe().populated()
   streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 ) [2]
   streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
@@ -32,7 +34,7 @@ As shown you can access this fluent interface using twp approaces:
 #####Triggering validation
 You trigger validation using:
 
-    result = validatron(toValidate, schema)
+    result = validatron(person, personRules)
 
 The returned object has the per-property details of any validation failures, e.g.:
 
