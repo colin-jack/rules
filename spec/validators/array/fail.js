@@ -1,27 +1,36 @@
 var assert = require('chai').assert;
-var populatedValidator = require('./../../testFixture').require('populatedValidator');
+var arrayValidator = require('./../../testFixture').require('arrayValidator');
 var validatorTestUtil = require('./../testUtil');
 
-describe('populated validator', function() {   
-    describe("When value '' is used", function() {
-        assertFailsForExpectedReason("");
+describe('array validator', function() {   
+  
+    describe("When value 0 is used", function() {
+        assertFailsForExpectedReason(0);
+    });
+    
+    describe("When value 'true' is used", function() {
+        assertFailsForExpectedReason('true');
     });
 
-    describe("When value 'null' is used", function() {
-        assertFailsForExpectedReason(null);
+    describe("When value false is used", function() {
+        assertFailsForExpectedReason(false);
     });
 
-    describe("When value 'undefined' is used", function() {
-        assertFailsForExpectedReason(undefined);
+    describe("When value true is used", function() {
+        assertFailsForExpectedReason(true);
+    });
+
+    describe("When string", function() {
+        assertFailsForExpectedReason("oi");
     });
 
     function assertFailsForExpectedReason(value) {
         var runValidatorWrapper = function() {
-            var underTest = populatedValidator.create();
+            var underTest = arrayValidator.create();
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be populated.", "not_populated")
+        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be an array.", "not_an_array")
     }
 });
 

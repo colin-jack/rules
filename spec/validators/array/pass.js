@@ -1,29 +1,29 @@
 var assert = require('chai').assert;
-var populatedValidator = require('./../../testFixture').require('populatedValidator');
+var arrayValidator = require('./../../testFixture').require('arrayValidator');
 
-describe('populated validator', function() {
-    describe("When value 0 is used", function() {
-        assertPassedValidation(0);
+describe('array validator', function() {
+    describe("When value '' is used", function() {
+        assertPassedValidation("");
     });
 
-    describe("When value NaN is used", function() {
-        assertPassedValidation(NaN);
+    describe("When value 'null' is used", function() {
+        assertPassedValidation(null);
     });
 
-    describe("When value 'true' is used", function() {
-        assertPassedValidation('true');
+    describe("When value 'undefined' is used", function() {
+        assertPassedValidation(undefined);
     });
 
-    describe("When value false is used", function() {
-        assertPassedValidation(false);
+    describe("When empty array", function() {
+        assertPassedValidation([]);
     });
 
-    describe("When value true is used", function() {
-        assertPassedValidation(true);
+    describe("When populated array is used", function() {
+        assertPassedValidation(['bob', 'frank']);
     });
 
     function assertPassedValidation(value) {
-        var underTest = populatedValidator.create();
+        var underTest = arrayValidator.create();
         assert.isUndefined(underTest(value));
     };
 });
