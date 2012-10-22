@@ -6,6 +6,10 @@ describe('string length validator', function() {
         assertFailsForExpectedReason("012", { minLength: 10, maxLength: 100}, "The length cannot be less than 10.");
     });
 
+    describe('When the length is less than minimum', function() {
+        assertFailsForExpectedReason("012", { minLength: 10, maxLength: 100}, "The length cannot be less than 10.");
+    });
+
     describe('When the value is greather than maximum length', function() {
         assertFailsForExpectedReason("0123456", { maxLength: 5 }, "The length cannot be greater than 5.");
     });

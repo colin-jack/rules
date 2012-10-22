@@ -3,10 +3,11 @@ var validatorTestUtil = require('./../testUtil');
 var stringValidator = require('./../../testFixture').require('stringValidator');
 
 describe('string validator', function() {
-    var assertPassedValidation = function(value) {
-        var underTest = stringValidator.create();
-        assert.isUndefined(underTest(value));
-    };
+    describe('When value is undefined/null and you apply minLength/maxLength', function() {
+        var underTest = stringValidator.create( { minLength: 10, maxLength: 100} );
+        assert.isUndefined(underTest(undefined));
+        assert.isUndefined(underTest(null));
+    });
 
     describe("When null is used", function() {
         it("should pass validation", function() {
@@ -31,4 +32,9 @@ describe('string validator', function() {
             assertPassedValidation('');
         });
     });
+
+    function assertPassedValidation(value) {
+        var underTest = stringValidator.create();
+        assert.isUndefined(underTest(value));
+    };
 });

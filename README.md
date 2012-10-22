@@ -1,6 +1,6 @@
 rules (node.js)
 ==========
-Small declarative rules framework desing primarily for use whne validating incoming data, such as JSON coming into services.
+Snpmall declarative rules framework desing primarily for use whne validating incoming data, such as JSON coming into services.
 
 Instead of trying handle all your validation this framework focussing on making it easy to declare data-level invariants, similiar to the sorts of rules you could put in a schema.
 

@@ -3,11 +3,14 @@ var validatorTestUtil = require('./../testUtil');
 var numericValidator = require('./../../testFixture').require('numericValidator');
 
 describe('numeric validator', function() {
-    var assertPassedValidation = function(value) {
-        var underTest = numericValidator.create();
-        assert.isUndefined(underTest(value));
-    };
-
+    describe('When value is null/undefined and you have min/max length', function() {
+        it('should pass', function() {
+            var underTest = numericValidator.create({min: 5, max: 10});
+            assert.isUndefined(underTest(null));
+            assert.isUndefined(underTest(undefined));
+        });
+    });
+    
     describe("When null is used", function() {
         it("should pass validation", function() {
             assertPassedValidation(null);
@@ -31,4 +34,10 @@ describe('numeric validator', function() {
             assertPassedValidation(5);
         });
     });
+
+    function assertPassedValidation (value) {
+        var underTest = numericValidator.create();
+        assert.isUndefined(underTest(value));
+    };
+
 });
