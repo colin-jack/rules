@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var arrayValidator = lib.require('arrayValidator');
+var populatedValidator = require('./../../testFixture').require('populatedValidator');
 var validatorTestUtil = require('./../testUtil');
 
 describe('populated validator', function() {   
@@ -17,7 +17,7 @@ describe('populated validator', function() {
 
     function assertFailsForExpectedReason(value) {
         var runValidatorWrapper = function() {
-            var underTest = arrayValidator.create();
+            var underTest = populatedValidator.create();
             return underTest(value);
         }
 
