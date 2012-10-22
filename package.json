@@ -1,7 +1,7 @@
 {
-  "name": "invariants",
-  "version": "0.0.7",
-  "description": "Small declarative validation framework focussed on making it easy to declare invaraints.",
+  "name": "rules",
+  "version": "0.1.0",
+  "description": "Create simple schemas, containing invariants, then use them to validate objects.",
   "main": "index",
 
   "author": {
@@ -33,7 +33,7 @@
     "email": "colin.jack@gmail.com"
   },
 
-  "_id": "invariants@0.0.7",
+  "_id": "rules@0.1.0",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.1.16",
