@@ -61,6 +61,24 @@ var runBasicTests = function(validationDefinitions) {
 
         shouldPassValidation(ancient, validationDefinitions.dateOfBirthMoreThanYearAgo)
     });
+
+    describe("When array of friends must be populated but is empty", function() {
+        var norman = { friends: [] };
+
+        shouldHaveSingleError(norman, validationDefinitions.requiredArrayOfFriends, "friends", "not_populated")
+    });
+
+    describe("When array of friends must be populated but is not an array", function() {
+        var norman = { friends: "bob" };
+
+        shouldHaveSingleError(norman, validationDefinitions.requiredArrayOfFriends, "friends", "not_an_array")
+    });
+
+    describe("When array of friends must be populated and is", function() {
+        var withFriends = { friends : ["bob", "frank"] };
+
+        shouldPassValidation(withFriends, validationDefinitions.requiredArrayOfFriends)
+    });
 };
 
 var validate = function(toValidate, definition) {

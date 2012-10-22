@@ -10,6 +10,10 @@ describe('populated validator', function() {
         assertPassedValidation(NaN);
     });
 
+    describe("When populated array is used", function() {
+        assertPassedValidation(["bob"]);
+    });
+
     describe("When value 'true' is used", function() {
         assertPassedValidation('true');
     });

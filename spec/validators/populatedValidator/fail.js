@@ -11,6 +11,10 @@ describe('populated validator', function() {
         assertFailsForExpectedReason(null);
     });
 
+    describe("When empty array is used", function() {
+        assertFailsForExpectedReason([]);
+    });
+
     describe("When value 'undefined' is used", function() {
         assertFailsForExpectedReason(undefined);
     });

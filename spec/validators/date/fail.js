@@ -49,7 +49,6 @@ describe('date validator', function() {
     function assertFailsForExpectedReason(value) {
         var runValidatorWrapper = function() {
             var underTest = dateValidator.create();
-            debugger;
             return underTest(value);
         }
 
