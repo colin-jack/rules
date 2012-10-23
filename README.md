@@ -1,11 +1,9 @@
 rules (node.js)
 ==========
-Snpmall declarative rules framework desing primarily for use whne validating incoming data, such as JSON coming into services.
-
-Instead of trying handle all your validation this framework focussing on making it easy to declare data-level invariants, similiar to the sorts of rules you could put in a schema.
+Small declarative rules framework designed primarily for use when validating incoming data, such as JSON coming into services.
 
 ### Samples
-You create an object to declare the invariants you want to apply. A fluent interface makes it easy to specify the invariants for each property.
+You create an object to declare the rules/invariants you want to apply (something akin to a schema). A fluent interface makes it easy to specify the invariants for each property:
 
 #####JavaScript
 ```js
@@ -74,6 +72,6 @@ Run the tests:
 
     mocha -R spec spec/ -w -G --recursive -b
 
-### TODO
+### Future
 * More validators
-* UMD support
+* Potentially UMD support
