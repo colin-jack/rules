@@ -115,7 +115,7 @@ var shouldPassValidation = function(toValidate, validationDefinition) {
     });
 
     it("Should not raise any error", function() {
-        assert.equal(Object.keys(result).length, 0);
+        assert.isUndefined(result);
     });
 };
 

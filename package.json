@@ -21,7 +21,8 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
-    "require-namespace" : "*"
+    "require-namespace" : "*",
+    "objectcompare" : "*"
   },
 
   "engines": {
