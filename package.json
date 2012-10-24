@@ -1,7 +1,11 @@
 {
+  "version": "0.5.0",
   "name": "rules",
-  "version": "0.4.0",
+  
+  "preferGlobal": "false",
+
   "description": "Validate objects against predefined rules (node.js).",
+  
   "main": "index",
 
   "author": {
@@ -18,6 +22,10 @@
     "moment": "*"
   },
 
+  "scripts": {
+    "test": "mocha -R spec spec/testFixture spec/ -w -G --recursive"
+  },
+
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
@@ -26,7 +34,7 @@
   },
 
   "engines": {
-    "node": ">= 0.4.0"
+    "node": ">= 0.5.0"
   },
 
   "_npmUser": {
@@ -34,10 +42,8 @@
     "email": "colin.jack@gmail.com"
   },
 
-  "_id": "rules@0.4.0",
-  "optionalDependencies": {},
-  "_engineSupported": true,
-  "_npmVersion": "1.1.16",
-  "_nodeVersion": "v0.6.4",
-  "_defaultsLoaded": true
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
 }
