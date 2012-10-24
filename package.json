@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.6.0",
   "name": "rules",
   
   "preferGlobal": "false",
@@ -33,16 +33,13 @@
     "objectcompare" : "*"
   },
 
-  "engines": {
-    "node": ">= 0.5.0"
-  },
-
   "_npmUser": {
     "name": "colin_jack",
     "email": "colin.jack@gmail.com"
   },
 
   "license": "MIT",
+  
   "engines": {
     "node": ">=0.6"
   }

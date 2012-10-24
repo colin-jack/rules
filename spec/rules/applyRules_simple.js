@@ -45,25 +45,22 @@ describe('rules - apply', function() {
         it('should fail for expect reasons', function() {
             var expected = { 
                 name: { 
-                    first: 
-                      { message: 'The value must be populated.',
+                    first: { 
+                        message: 'The value must be populated.',
                         type: 'not_populated',
                         value: undefined },
-                     second: 
-                      { message: 'The value must be populated.',
+                    second: { 
+                        message: 'The value must be populated.',
                         type: 'not_populated',
                         value: undefined } },
-                dateOfBirth: 
-                   { message: 'The value must be populated.',
-                     type: 'not_populated',
-                     value: undefined } 
+                dateOfBirth: { 
+                    message: 'The value must be populated.',
+                    type: 'not_populated',
+                    value: undefined } 
             };
 
             var comparison = compare(result, expected);
             assert.isTrue(comparison.equal,  "Unexpected difference: " + JSON.stringify(comparison.differences));
         });
     });
-
-    // TODO - Cycles in rules objects
-    // TODO - Multiple level rules objects
 });
