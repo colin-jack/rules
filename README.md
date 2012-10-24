@@ -7,8 +7,13 @@ You create an object to declare the rules/invariants you want to apply (somethin
 
 #####JavaScript
 ```js
+var nameRules = {
+    first  : mustBe().populated().string({ minLength: 5, maxLength: 20}),
+    second : mustBe().populated().string({ minLength: 5, maxLength: 20}),
+}
+
 var personRules = {
-    name:        mustBe().populated().string( { minLength: 5, maxLength: 20} ), [1]
+    name:        nameRules,
     weight:      mustBe().populated().numeric({min : 0, max: 130}),
     dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
 }
@@ -35,15 +40,27 @@ You trigger validation using:
     result = rules.apply(person, personRules)
 
 The returned object has the per-property details of any validation failures, e.g.:
-
 ```js
-{ town: 
-   [ { message: 'The value must be populated.',
-       type: 'not_populated',
-       value: undefined } ] 
+{ 
+    name: { 
+        first: { 
+            message: 'The value must be populated.',
+            type: 'not_populated',
+            value: '' 
+        },
+        second: { 
+            message: 'The value must be populated.',
+            type: 'not_populated',
+            value: undefined } 
+        },
+    weight: { 
+        message: 'The value must be populated.',
+        type: 'not_populated',
+        value: undefined 
+    } 
 }
-
 ```
+Note in this case both the first name (e.g. person.name.first) and second name (person.name.second) needed to be populated, along with the weight.
 
 ### Examples
 The project comes with examples in the examples directory:
