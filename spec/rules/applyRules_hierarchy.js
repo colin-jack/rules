@@ -33,39 +33,48 @@ describe('rules - apply', function() {
         });
     });
 
-    // describe('When you apply a simple set of rules to an object that does not meet them', function() {
-    //     var result;
+    describe('When you apply a simple set of rules to an object that does not meet them', function() {
+        var result;
 
-    //     beforeEach(function() {
-    //         var invalid = { name: "" };
-    //         result = rules.apply(invalid, simpleRules);
-    //     });
+        beforeEach(function() {
+            var invalid = {};
+            result = rules.apply(invalid, postRules);
+        });
 
-    //     it('should notify you of the failure of two top level objects', function() {
-    //         assert.equal(Object.keys(result).length, 2);
-    //     });
+        it('should notify you of the failure of top level object (author)', function() {
+            assert.equal(Object.keys(result).length, 1);
+        });
 
-    //     it('should fail for expect reasons', function() {
-    //         var expected = { 
-    //             name: { 
-    //                 first: { 
-    //                     message: 'The value must be populated.',
-    //                     type: 'not_populated',
-    //                     value: undefined },
-    //                 second: { 
-    //                     message: 'The value must be populated.',
-    //                     type: 'not_populated',
-    //                     value: undefined } },
-    //             dateOfBirth: { 
-    //                 message: 'The value must be populated.',
-    //                 type: 'not_populated',
-    //                 value: undefined } 
-    //         };
+        it('should fail for expect reasons', function() {
+            // JSON.stringify(result, null, 2)
+            var expected = {
+              author: {
+                name: {
+                  first: {
+                    message: "The value must be populated.",
+                    type: "not_populated",
+                    value: undefined
+                  },
+                  second: {
+                    message: "The value must be populated.",
+                    type: "not_populated",
+                    value: undefined
+                  }
+                },
+                bio: {
+                  description: {
+                    message: "The value must be populated.",
+                    type: "not_populated",
+                    value: undefined
+                  }
+                }
+              }
+            };
 
-    //         var comparison = compare(result, expected);
-    //         assert.isTrue(comparison.equal,  "Unexpected difference: " + JSON.stringify(comparison.differences));
-    //     });
-    // });
+            var comparison = compare(result, expected);
+            assert.isTrue(comparison.equal,  "Unexpected difference: " + JSON.stringify(comparison.differences));
+        });
+    });
 
     // TODO - Cycles in rules objects
     // TODO - Multiple level rules objects
