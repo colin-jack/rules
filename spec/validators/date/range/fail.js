@@ -5,6 +5,7 @@ var now = lib.require('now');
 var moment = require('moment');
 
 describe('date range validator', function() {
+    // TODO: Change the way this and next test work, the use of date in the message makes it possible it'll fail
     describe('When date is too far in future', function() {
         var validUpToTwoYears = { before: now.add("years", 2)}
         var fiveYearsTime = moment().add("years", 5);

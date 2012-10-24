@@ -99,11 +99,11 @@ var shouldHaveSingleError = function(toValidate, validationDefinition, property,
     });
 
     it("Should have one error for expected property", function() {
-        assert.equal(result[property].length, 1);
+        assert.isDefined(result[property]);
     });
 
     it("Should notify you the value must be populated", function() {
-        assert.equal(result[property][0].type, error);
+        assert.equal(result[property].type, error);
     });
 };
 

@@ -1,7 +1,7 @@
 {
   "name": "rules",
-  "version": "0.3.0",
-  "description": "Validate objects against declarative rules objects.",
+  "version": "0.4.0",
+  "description": "Validate objects against predefined rules (node.js).",
   "main": "index",
 
   "author": {
@@ -33,7 +33,7 @@
     "email": "colin.jack@gmail.com"
   },
 
-  "_id": "rules@0.3.0",
+  "_id": "rules@0.4.0",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.1.16",

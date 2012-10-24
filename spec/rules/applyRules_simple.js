@@ -9,7 +9,7 @@
 //     }
 
 //     var simpleRules = {
-//         name        : mustBe().objectPassing(nameRules),
+//         name        : nameRules,
 
 //         dateOfBirth : function() { this.date().populated() },
 
@@ -36,4 +36,7 @@
 //             assert.equal(Object.keys(result).length, 3);
 //         });
 //     });
+
+//     // TODO - Cycles in rules objects
+//     // TODO - Multiple level rules objects
 // });
