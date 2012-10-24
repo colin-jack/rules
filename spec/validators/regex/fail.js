@@ -26,6 +26,6 @@ describe('regex validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value does not match the required pattern '(AB)+'", "regex_not_matched")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, "The value does not match the required pattern '(AB)+'", "regex_not_matched")
     }
 });

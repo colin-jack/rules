@@ -52,6 +52,6 @@ describe('date validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be a date.", "not_a_date")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, "The value must be a date.", "not_a_date")
     }
 });

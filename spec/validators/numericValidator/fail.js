@@ -9,7 +9,7 @@ describe('numeric validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be numeric.", "not_numeric")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, "The value must be numeric.", "not_numeric")
     }
 
 	describe("When value 'bob' is used", function() {

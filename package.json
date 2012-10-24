@@ -30,7 +30,8 @@
     "mocha": "*",
     "chai": "*",
     "require-namespace" : "*",
-    "objectcompare" : "*"
+    "objectcompare" : "*",
+    "timekeeper": "*"
   },
 
   "_npmUser": {

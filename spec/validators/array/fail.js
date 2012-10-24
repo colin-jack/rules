@@ -30,7 +30,7 @@ describe('array validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be an array.", "not_an_array")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, "The value must be an array.", "not_an_array")
     }
 });
 

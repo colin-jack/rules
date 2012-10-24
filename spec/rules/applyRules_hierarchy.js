@@ -77,5 +77,4 @@ describe('rules - apply', function() {
     });
 
     // TODO - Cycles in rules objects
-    // TODO - Multiple level rules objects
 });

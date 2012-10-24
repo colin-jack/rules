@@ -33,7 +33,7 @@ describe('string validator', function() {
             return underTest("a");
         }
 
-        testUtil.assertExpectedFail("a", runValidatorWrapper, "The length cannot be less than 6.", "outside_length_constraint")
+        testUtil.validateAndAssertExpectedFail("a", runValidatorWrapper, "The length cannot be less than 6.", "outside_length_constraint")
     });
 
     function assertFailsForExpectedReason(value) {
@@ -42,7 +42,7 @@ describe('string validator', function() {
             return underTest(value);
         }
 
-        testUtil.assertExpectedFail(value, runValidatorWrapper, "The value must be a string.", "not_a_string")
+        testUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, "The value must be a string.", "not_a_string")
     }
 });
 

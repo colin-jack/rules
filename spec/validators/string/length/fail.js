@@ -28,6 +28,6 @@ describe('string length validator', function() {
             return underTest(value);
         }
 
-        validatorTestUtil.assertExpectedFail(value, runValidatorWrapper, expectedMessage, "outside_length_constraint")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, expectedMessage, "outside_length_constraint")
     }
 });
