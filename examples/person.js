@@ -5,27 +5,28 @@ var log = require('util').log,
     now = require('./../lib/validators/date/now'),
     moment = require('moment');
 
-var invalidPerson = { 
-    name: "Elmo", 
-    dateOfBirth : moment(), 
-    address: null, 
-    weight: 5,
-    friends: []
-};
-
 var nameRules = {
     first  : mustBe().populated().string({ minLength: 5, maxLength: 20}),
     second : mustBe().populated().string({ minLength: 5, maxLength: 20}),
 }
 
 var personRules = {
-    //name         : nameRules,
+    name         : nameRules,
 
     weight       : mustBe().populated().numeric({ min : 0, max: 130 }),
     dateOfBirth  : mustBe().date({ before: now.subtract("years", 1) }),
-
     friends      : mustBe().populated().array()
 }
+
+var invalidPerson = { 
+    name: {
+        first: "Brian"
+    },
+    dateOfBirth : moment(), 
+    address: null, 
+    weight: 5,
+    friends: []
+};
 
 var result = rules.apply(invalidPerson, personRules);
 
