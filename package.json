@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.6.1",
   "name": "rules",
   
   "preferGlobal": "false",
@@ -26,12 +26,17 @@
     "test": "mocha -R spec spec/testFixture spec/ -w -G --recursive"
   },
 
+  "keywords": [
+    "validation",
+    "rules",
+    "schema"
+  ],
+
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
     "require-namespace" : "*",
-    "objectcompare" : "*",
-    "timekeeper": "*"
+    "objectcompare" : "*"
   },
 
   "_npmUser": {

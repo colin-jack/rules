@@ -85,7 +85,7 @@ First install mocha:
 
     npm install mocha -g
 
-Run the tests:
+Run the tests using ```npm test``` or:
 
     mocha -R spec spec/ -w -G --recursive -b
 
