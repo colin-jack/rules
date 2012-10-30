@@ -1,7 +1,6 @@
-var assert = require('chai').assert;
-var rules = lib.require('rules'),
-    mustBe = lib.require('mustBe'),
-    compare = require('objectcompare');
+var assert = require('chai').assert,
+    rules = lib.require('rules'),
+    mustBe = lib.require('mustBe');
 
 describe('rules - apply to something other than object', function() {
     var nameRules = {
@@ -22,15 +21,17 @@ describe('rules - apply to something other than object', function() {
     });
 
     describe('When you apply a simple set of rules to NaN/function/primitives', function() {
+        var ExpectedRulesMessage = /The target of the validation must be a valid object./
+        
         it('should throw an exception', function() {
-            assert.throws(applyValidationWrapper(NaN), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(function() {}), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(5), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper("bob"), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(false), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(Number(5)), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(String("bob")), /The target of the validation must be a valid object./)
-            assert.throws(applyValidationWrapper(Boolean(true)), /The target of the validation must be a valid object./)
+            assert.throws(applyValidationWrapper(NaN), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(function() {}), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(5), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper("bob"), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(false), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(Number(5)), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(String("bob")), ExpectedRulesMessage)
+            assert.throws(applyValidationWrapper(Boolean(true)), ExpectedRulesMessage)
         });
     });
 
@@ -39,6 +40,4 @@ describe('rules - apply to something other than object', function() {
             rules.apply(target, nameRules)   
         }
     }
-
-    // TODO: Rules object null/undefined.
 });
