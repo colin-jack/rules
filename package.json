@@ -1,8 +1,8 @@
 {
-  "version": "0.6.1",
+  "version": "0.6.2",
   "name": "rules",
   
-  "preferGlobal": "false",
+  "preferGlobal": false,
 
   "description": "Validate objects against predefined rules (node.js).",
   
@@ -23,7 +23,7 @@
   },
 
   "scripts": {
-    "test": "mocha -R spec spec/testFixture spec/ -w -G --recursive"
+    "test": "mocha -R spec spec/testFixture spec/ -w --recursive"
   },
 
   "keywords": [
