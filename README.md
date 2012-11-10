@@ -90,9 +90,10 @@ Run the tests using ```npm test``` or:
     mocha -R spec spec/ -w -G --recursive -b
 
 ### Future
-* Numeric validators - >, <, >=, <=
+* Numeric validators - >, <, >=, <=, integer
 * Date validator - Support now()
 * boolean validator
+* enum style validator - valueIn(list), valueNotIn(list).
 * Potentially UMD support
 * Trying to apply multiple of same validator, multiple type validators, regex with anything other than string
 * API for throwing
