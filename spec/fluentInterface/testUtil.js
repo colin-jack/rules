@@ -79,6 +79,24 @@ var runBasicTests = function(validationDefinitions) {
 
         shouldPassValidation(withFriends, validationDefinitions.requiredArrayOfFriends)
     });
+
+    describe("When age must be an integer and is", function() {
+        var withIntegerAge = { age: 15 };
+
+        shouldPassValidation(withIntegerAge, validationDefinitions.integerAge)
+    });
+
+    describe("When age must be an integer and is not", function() {
+        var withNonIntegerAge = { age: 15.5 };
+
+        shouldHaveSingleError(withNonIntegerAge, validationDefinitions.integerAge, "age", "not_an_integer")
+    });
+
+    describe("When age must be an integer and is not even numeric", function() {
+        var withNonIntegerAge = { age: "bob" };
+
+        shouldHaveSingleError(withNonIntegerAge, validationDefinitions.integerAge, "age", "not_numeric")
+    });
 };
 
 var validate = function(toValidate, definition) {

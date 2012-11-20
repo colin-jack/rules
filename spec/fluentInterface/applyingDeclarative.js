@@ -28,8 +28,11 @@ describe('rules - declarative', function() {
         dateOfBirthMoreThanYearAgo: {
             dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
         },
-        requiredArrayOfFriends : {
+        requiredArrayOfFriends: {
             friends : mustBe().populated().array() 
+        },
+        integerAge: {
+            age: mustBe().integer()
         }
 	};
 

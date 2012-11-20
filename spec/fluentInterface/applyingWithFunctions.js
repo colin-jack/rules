@@ -30,6 +30,9 @@ describe('rules - declarative with functions', function() {
         },
         requiredArrayOfFriends : {
             friends : function() { this.populated().array() }
+        },
+        integerAge: {
+            age: function() { this.integer(); }
         }
 	};
 

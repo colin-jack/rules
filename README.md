@@ -99,3 +99,4 @@ Run the tests using ```npm test``` or:
 * Ensure interface e.g. ensure(5).populate().numeric(), allowing direct validation of single values
 * API for throwing
 * Cyclical rules objects warning
+* Numeric validator - failing if passed "15.5"
