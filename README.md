@@ -20,6 +20,13 @@ var personRules = {
     dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
 }
 ````
+You can also do inline validation:
+```js
+var doSomeStuff = function(name, age) {
+    ensure(name).populated().string();
+    ensure(age, "age").integer();
+}
+```
 #####CoffeeScript
 ```coffeescript
 # This schema is not showing how to validate a real address, its just an example that makes it easy to test the framework
