@@ -10,16 +10,21 @@ You create an object to declare the rules/invariants you want to apply (somethin
 #####JavaScript
 ```js
 var nameRules = {
-    first  : mustBe().populated().string({ minLength: 5, maxLength: 20}),
+    first  : mustBe().populated().string({ minLength: 5, maxLength: 20}), [1]
     second : mustBe().populated().string({ minLength: 5, maxLength: 20}),
 }
 
 var personRules = {
     name:        nameRules,
     weight:      mustBe().populated().numeric({min : 0, max: 130}),
-    dateOfBirth: mustBe().date({ before: now.subtract("years", 1) })
+    dateOfBirth: function() { this.populated().date({ before: now.subtract("years", 1) }); } [2]
 }
 ````
+As shown you can access this fluent interface using twp approaces:
+
+* [1] mustBe() - Acts as the entry point to the fluent interface.
+* [2] function - 'this' inside the function being the entry point to the fluent interface.
+
 You can also do inline validation:
 ```js
 var doSomeStuff = function(name, age) {
@@ -32,17 +37,12 @@ var doSomeStuff = function(name, age) {
 # This schema is not showing how to validate a real address, its just an example that makes it easy to test the framework
 addressRules = {
   streetOne: mustBe().populated()
-  streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 ) [2]
+  streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 ) 
   streetThree: -> @.populated().string( minLength : 10, maxLength: 50) 
   town: -> @.populated()
   postCode: -> @.populated().matchFor(/.../)
 }
 ```
-As shown you can access this fluent interface using twp approaces:
-
-* [1] mustBe() - Acts as the entry point to the fluent interface.
-* [2] function - 'this' inside the function being the entry point to the fluent interface.
-
 #####Triggering validation
 You trigger validation using:
 
