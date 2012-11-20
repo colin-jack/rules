@@ -1,7 +1,8 @@
-global.rulesLib = require('./../lib/namespace');
+global.rulesLib = require('./lib/namespace');
 
 module.exports = {
     rules: require('./lib/rules'),
     mustBe: require('./lib/mustBe'),
-    now: require('./lib/validators/date/now')
+    now: require('./lib/validators/date/now'),
+    ensure: require('./lib/ensure')
 }

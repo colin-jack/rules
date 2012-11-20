@@ -37,7 +37,6 @@ describe('integer validator', function() {
 
 	function assertPassesValidation(value) 
 	{
-		debugger;
 		assert.isUndefined(underTest(value));
 	}
 });
