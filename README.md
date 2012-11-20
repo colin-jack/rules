@@ -90,13 +90,12 @@ Run the tests using ```npm test``` or:
     mocha -R spec spec/ -w -G --recursive -b
 
 ### Future
-* Numeric validators - >, <, >=, <=, integer
+* Numeric validators - >, <, >=, <=
 * Date validator - Support now()
 * boolean validator
 * enum style validator - valueIn(list), valueNotIn(list).
 * Potentially UMD support
-* Trying to apply multiple of same validator, multiple type validators, regex with anything other than string
-* API for throwing
+* Trying to apply multiple of same validator, multiple type validators (integer and string, numeric and boolean), regex with anything other than string
 * Ensure interface e.g. ensure(5).populate().numeric(), allowing direct validation of single values
-* JSHint over the whole codebase
+* API for throwing
 * Cyclical rules objects warning

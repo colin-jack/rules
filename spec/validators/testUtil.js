@@ -9,7 +9,7 @@ var validateAndAssertExpectedFail = function(valueToValidate, runsValidator, exp
     })
 
     it('should fail validation', function() {           
-        assert.isDefined(result);
+        assert.isDefined(result, "Expecte fail for '" + valueToValidate + "'");
     });
 
     it('should fail validation for correct reason', function() {            

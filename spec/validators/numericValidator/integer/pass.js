@@ -18,6 +18,13 @@ describe('integer validator', function() {
 		});
 	});
 
+	describe('when you use the validator to validate null or undefined', function() {
+		it('should pass validation', function() {
+			assertPassesValidation(null);
+			assertPassesValidation(undefined);
+		});
+	});
+
 	describe('when you use the validator to validate Number objects for integer values', function() {
 		it('should pass validation', function() {
 			assertPassesValidation(new Number(50000));
@@ -28,7 +35,9 @@ describe('integer validator', function() {
 		});
 	});
 
-	function assertPassesValidation(value) {
-		assert.isUndefined(underTest(50000));
+	function assertPassesValidation(value) 
+	{
+		debugger;
+		assert.isUndefined(underTest(value));
 	}
 });

@@ -1,29 +1,28 @@
 var validatorTestUtil = require('./../../testUtil');
-var numericRangeValidator = rulesLib.require('numericRangeValidator');
+var integerValidator = rulesLib.require('integerValidator');
 
-describe.skip('numeric range validator', function() {
-    describe('When the value is less than minimum', function() {
-        assertFailsForExpectedReason(1, { min: 10, max: 100}, "The value cannot be less than 10.");
+describe('numeric range validator', function() {
+    describe('When the value is contains a decimal value', function() {
+        var expectedMessage = 'The value must be an integer.'
+        assertFailsForExpectedReason(1.5, expectedMessage, "not_an_integer");
+        assertFailsForExpectedReason(1.0001, expectedMessage, "not_an_integer");
+        assertFailsForExpectedReason(-1.5, expectedMessage, "not_an_integer");
     });
 
-    describe('When the value is greater than maximum', function() {
-        assertFailsForExpectedReason(20, { max: 15 }, "The value cannot be greater than 15.");
+    describe('When the value is not a number', function() {
+        var expectedMessage = 'The value must be numeric.'
+        assertFailsForExpectedReason("bob", expectedMessage, "not_numeric");
+        assertFailsForExpectedReason(true, expectedMessage, "not_numeric");
+        assertFailsForExpectedReason(function() { }, expectedMessage, "not_numeric");
+        assertFailsForExpectedReason({}, expectedMessage, "not_numeric");
     });
 
-    describe('When there is no minimum but value is greater than maximum', function() {
-        assertFailsForExpectedReason(50, { max: 10}, "The value cannot be greater than 10.");
-    });
-
-    describe('When there is no maximum but value is less than minimum', function() {
-        assertFailsForExpectedReason(5, { min: 15 }, "The value cannot be less than 15.");
-    });
-
-    function assertFailsForExpectedReason(value, config, expectedMessage) {
+    function assertFailsForExpectedReason(value, expectedMessage, reason) {
         var runValidatorWrapper = function() {
-            var underTest = numericRangeValidator.create(config);
+            var underTest = integerValidator.create();
             return underTest(value);
         }
 
-        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, expectedMessage, "outside_range")
+        validatorTestUtil.validateAndAssertExpectedFail(value, runValidatorWrapper, expectedMessage, reason)
     }
 });
