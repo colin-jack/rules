@@ -17,7 +17,9 @@ var nameRules = {
 var personRules = {
     name:        nameRules,
     weight:      mustBe().populated().numeric({min : 0, max: 130}),
-    dateOfBirth: function() { this.populated().date({ before: now.subtract("years", 1) }); } [2]
+    dateOfBirth: function() { 
+        this.populated().date({ before: now.subtract("years", 1) }); 
+    } [2]
 }
 ````
 As shown you can access this fluent interface using twp approaces:
