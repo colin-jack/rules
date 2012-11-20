@@ -1,5 +1,5 @@
 var validatorTestUtil = require('./../../testUtil');
-var stringLengthValidator = require('./../../../testFixture').require('stringLengthValidator');
+var stringLengthValidator = rulesLib.require('stringLengthValidator');
 
 describe('string length validator', function() {
     describe('When the length is less than minimum', function() {

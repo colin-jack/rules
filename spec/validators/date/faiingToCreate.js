@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var dateValidator = lib.require('dateValidator');
+var dateValidator = rulesLib.require('dateValidator');
 
 describe('date validator', function() {
     describe("When config has unsupported values", function() {

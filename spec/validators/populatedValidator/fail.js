@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var populatedValidator = lib.require('populatedValidator');
+var populatedValidator = rulesLib.require('populatedValidator');
 var validatorTestUtil = require('./../testUtil');
 
 describe('populated validator', function() {   

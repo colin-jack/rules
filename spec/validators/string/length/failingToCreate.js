@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var stringLengthValidator = require('./../../../testFixture').require('stringLengthValidator')
+var stringLengthValidator = rulesLib.require('stringLengthValidator')
 
 describe('When you try to create range validator', function() {
     var MinLengthMessage = /The minimum length \(minLength\) must be a number/;

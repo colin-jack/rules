@@ -1,6 +1,6 @@
 var testUtil = require('./../../testUtil');
-var dateRangeValidator = lib.require('dateRangeValidator');
-var now = lib.require('now');
+var dateRangeValidator = rulesLib.require('dateRangeValidator');
+var now = rulesLib.require('now');
 var moment = require('moment');
 
 describe('date range validator', function() {

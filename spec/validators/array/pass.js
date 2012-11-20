@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var arrayValidator = require('./../../testFixture').require('arrayValidator');
+var arrayValidator = rulesLib.require('arrayValidator');
 
 describe('array validator', function() {
     describe("When value '' is used", function() {

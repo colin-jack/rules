@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var numericValidator = require('./../../testFixture').require('numericValidator');
+var numericValidator = rulesLib.require('numericValidator');
 
 describe('numeric validator', function() {
     describe('When value is null/undefined and you have min/max length', function() {

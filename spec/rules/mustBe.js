@@ -1,6 +1,6 @@
 // var assert = require('chai').assert;
-// var rules = lib.require('rules'),
-//     mustBe = lib.require('mustBe');
+// var rules = rulesLib.require('rules'),
+//     mustBe = rulesLib.require('mustBe');
 
 // describe('mustBe', function() {
 //     var nameRules = {

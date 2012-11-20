@@ -1,7 +1,7 @@
 var validatorTestUtil = require('./../../testUtil');
 var numericRangeValidator = rulesLib.require('numericRangeValidator');
 
-describe('numeric range validator', function() {
+describe.skip('numeric range validator', function() {
     describe('When the value is less than minimum', function() {
         assertFailsForExpectedReason(1, { min: 10, max: 100}, "The value cannot be less than 10.");
     });

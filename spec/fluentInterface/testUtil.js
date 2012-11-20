@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var rules = require('./../testFixture').require('rules');
+var rules = rulesLib.require('rules');
 
 // When using the declarative approach we have two ways of specifying how to validate:
 //    age: mustBe().populated()

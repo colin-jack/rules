@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var dateValidator = require('./../../testFixture').require('dateValidator');
+var dateValidator = rulesLib.require('dateValidator');
 
 describe('date validator', function() {
     describe("When value 'frank' is used", function() {

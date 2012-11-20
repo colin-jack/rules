@@ -1,6 +1,6 @@
 var assert = require('chai').assert,
-    rules = lib.require('rules'),
-    mustBe = lib.require('mustBe');
+    rules = rulesLib.require('rules'),
+    mustBe = rulesLib.require('mustBe');
 
 describe('rules - apply no schema', function() {
     describe('When you apply an invalid rules object', function() {

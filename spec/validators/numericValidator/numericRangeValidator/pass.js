@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var numericRangeValidator = require('./../../../testFixture').require('numericRangeValidator');
+var numericRangeValidator = rulesLib.require('numericRangeValidator');
 
 describe('numeric range validator', function() {
 	describe('When you create range validator and only provide  minimum', function() {

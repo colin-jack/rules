@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 var numericRangeValidator = rulesLib.require('numericRangeValidator')
 
-describe('numeric range validator', function() {
+describe.skip('numeric range validator', function() {
     describe('When you try to create numeric range validator', function() {
         var MinMessage = /The 'min' value must be a number./;
         var MaxMessage = /The 'max' value must be a number./;

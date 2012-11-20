@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var regularExpressionValidator = require('./../../testFixture').require('regularExpressionValidator');
+var regularExpressionValidator = rulesLib.require('regularExpressionValidator');
 
 describe('regex validator', function() {
     describe("When config has unsupported values", function() {

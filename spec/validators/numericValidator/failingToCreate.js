@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var numericValidator = require('./../../testFixture').require('numericValidator');
+var numericValidator = rulesLib.require('numericValidator');
 
 describe('numeric validator', function() {
   

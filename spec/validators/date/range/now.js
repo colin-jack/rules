@@ -2,7 +2,7 @@
 // in-appropriate key
 
 var assert = require('chai').assert;
-var now = lib.require('now');
+var now = rulesLib.require('now');
 var moment = require('moment');
 
 describe('date range validator - now interface', function() {

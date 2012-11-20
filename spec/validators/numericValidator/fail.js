@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var numericValidator = require('./../../testFixture').require('numericValidator');
+var numericValidator = rulesLib.require('numericValidator');
 
 describe('numeric validator', function() {
 	 var assertFailsForExpectedReason = function(value) {

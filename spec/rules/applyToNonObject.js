@@ -1,6 +1,6 @@
 var assert = require('chai').assert,
-    rules = lib.require('rules'),
-    mustBe = lib.require('mustBe');
+    rules = rulesLib.require('rules'),
+    mustBe = rulesLib.require('mustBe');
 
 describe('rules - apply to something other than object', function() {
     var nameRules = {

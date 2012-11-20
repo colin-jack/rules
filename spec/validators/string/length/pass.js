@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var stringLengthValidator = require('./../../../testFixture').require('stringLengthValidator');
+var stringLengthValidator = rulesLib.require('stringLengthValidator');
 
 describe('string length validator', function() {
     describe('When you create validator and only provide maximum', function() {

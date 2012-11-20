@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
-var now = lib.require('now');
+var now = rulesLib.require('now');
 var moment = require('moment');
-var dateRangeValidator = lib.require('dateRangeValidator');
+var dateRangeValidator = rulesLib.require('dateRangeValidator');
 
 describe('date range validator', function() {
     describe('When asking if it handles', function() {

@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var stringValidator = require('./../../testFixture').require('stringValidator');
+var stringValidator = rulesLib.require('stringValidator');
 var testUtil = require('./../testUtil');
 
 describe('string validator', function() {   

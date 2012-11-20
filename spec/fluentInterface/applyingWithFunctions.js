@@ -1,5 +1,5 @@
 var testUtil = require('./testUtil'),
-    now = lib.require('now');
+    now = rulesLib.require('now');
 
 describe('rules - declarative with functions', function() {
 	

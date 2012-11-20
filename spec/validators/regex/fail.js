@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 var validatorTestUtil = require('./../testUtil');
-var regularExpressionValidator = require('./../../testFixture').require('regularExpressionValidator');
+var regularExpressionValidator = rulesLib.require('regularExpressionValidator');
 
 describe('regex validator', function() {
     describe("When value has wrong case and no flags are used", function() {
