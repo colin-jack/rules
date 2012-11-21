@@ -2,7 +2,7 @@ rules (node.js)
 ==========
 [![Build Status](https://travis-ci.org/colin-jack/rules.png)](https://travis-ci.org/#!/colin-jack/rules)
 
-Small declarative rules framework designed primarily for use when validating incoming data, such as JSON coming into services.
+Declarative rules framework designed primarily for use when validating incoming data, such as JSON coming into services.
 
 ### Samples
 You create an object to declare the rules/invariants you want to apply (something akin to a schema). A fluent interface makes it easy to specify the invariants for each property:
