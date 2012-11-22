@@ -2,12 +2,11 @@ rules (node.js)
 ==========
 [![Build Status](https://travis-ci.org/colin-jack/rules.png)](https://travis-ci.org/#!/colin-jack/rules)
 
-Declarative rules framework designed primarily for use when validating incoming data, such as JSON coming into services.
-
-### Samples
+A small rules framework that can be used to validate any value, either by you creating a rules/schema object or applying validations to a single value. In both cases a fluent interface is used.
+## Samples
+### Schema
 You create an object to declare the rules/invariants you want to apply (something akin to a schema). A fluent interface makes it easy to specify the invariants for each property:
 
-#####JavaScript
 ```js
 var nameRules = {
     first  : mustBe().populated().string({ minLength: 5, maxLength: 20}), [1]
@@ -22,21 +21,14 @@ var personRules = {
     } [2]
 }
 ````
-As shown you can access this fluent interface using twp approaces:
+As shown you can access this fluent interface using two approaches:
 
 * [1] mustBe() - Acts as the entry point to the fluent interface.
 * [2] function - 'this' inside the function being the entry point to the fluent interface.
 
-You can also do inline validation:
-```js
-var doSomeStuff = function(name, age) {
-    ensure(name).populated().string();
-    ensure(age, "age").integer();
-}
-```
-#####CoffeeScript
+The function based approach is designed primarily for use with CoffeeScript:
 ```coffeescript
-# This schema is not showing how to validate a real address, its just an example that makes it easy to test the framework
+# This schema is not showing how to validate a real address, it just shows a few validators
 addressRules = {
   streetOne: mustBe().populated()
   streetTwo: -> @.populated().string( minLength: 10, maxLength : 50 ) 
@@ -45,7 +37,18 @@ addressRules = {
   postCode: -> @.populated().matchFor(/.../)
 }
 ```
-#####Triggering validation
+### Inline Validation
+The same validators are available for use validating individual values:
+```js
+var doSomeStuff = function(name, age) {
+    ensure(name).populated().string();
+    ensure(age, "age").integer();
+
+    ...
+}
+```
+
+### Triggering validation
 You trigger validation using:
 
     result = rules.apply(person, personRules)
@@ -73,7 +76,18 @@ The returned object has the per-property details of any validation failures, e.g
 ```
 Note in this case both the first name (e.g. person.name.first) and second name (person.name.second) needed to be populated, along with the weight.
 
-### Examples
+## Validators
+The framework comes with several validators, to understand them further you may want to run the examples.
+
+* ```populated``` - Checks the value is not ```null```, ```undefined```, ```""```, or an empty array.
+* ```array```
+* ```numeric``` - Optionally you can also pass in object with ```min``` and/or ```max``` values
+* ```integer```
+* ```matchFor``` - You can pass in an object with ```pattern``` and optionally ```flags```, alternatively you can pass in the ```RegExp``` object to use.
+* ```date``` - Optionally you can specify that the date must be ```before``` and/or ```after``` specified dates. To make this easier you use ```now.add``` or ```now.subtract``` to specify the dates to use for ```before```/```after```.
+* ```string``` - Optionally you can pass in ```minLength``` and/or ```maxLength```.
+
+## Examples
 The project comes with examples in the examples directory:
 
     node examples/person
@@ -81,17 +95,7 @@ The project comes with examples in the examples directory:
 
 Note that if you are using sublime you can get the alignment shown in the person example using the [sublime text alignment package](http://wbond.net/sublime_packages/alignment).
 
-### Validators
-The framework comes with several validators, to understand them further you may want to run the examples.
-
-* ```populated``` - Checks the value is not ```null```, ```undefined```, ```""```, or an empty array.
-* ```array```
-* ```numeric``` - Optionally you can also pass in object with ```min``` and/or ```max``` values
-* ```matchFor``` - You can pass in an object with ```pattern``` and optionally ```flags```, alternatively you can pass in the ```RegExp``` object to use.
-* ```date``` - Optionally you can specify that the date must be ```before``` and/or ```after``` specified dates. To make this easier you use ```now.add``` or ```now.subtract``` to specify the dates to use for ```before```/```after```.
-* ```string``` - Optionally you can pass in ```minLength``` and/or ```maxLength```.
-
-### Tests
+## Tests
 First install mocha: 
 
     npm install mocha -g
@@ -100,7 +104,7 @@ Run the tests using ```npm test``` or:
 
     mocha -R spec spec/ -w -G --recursive -b
 
-### Future
+## Future
 * Numeric validators - >, <, >=, <=
 * Date validator - Support now()
 * boolean validator
