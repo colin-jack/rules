@@ -1,6 +1,7 @@
-var testUtil = require('./testUtil')
-var mustBe = rulesLib.require('mustBe'),
-    now = rulesLib.require('now');
+var rulesLib = require('./../../lib/namespace.js');
+var testUtil = require('./testUtil');
+var mustBe = rulesLib.require('mustBe');
+var now = rulesLib.require('now');
 
 describe('rules - declarative', function() {
 	var validationDefinitions = {

@@ -1,5 +1,5 @@
 {
-  "version": "0.6.41",
+  "version": "0.6.42",
   "name": "rules",
   
   "preferGlobal": false,
@@ -19,7 +19,8 @@
 
   "dependencies": {
     "underscore": "*",
-    "moment": "*"
+    "moment": "*",
+    "require-namespace" : "*"
   },
 
   "scripts": {
@@ -35,7 +36,6 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
-    "require-namespace" : "*",
     "objectcompare" : "*"
   },
 
@@ -47,6 +47,6 @@
   "license": "MIT",
   
   "engines": {
-    "node": ">=0.6"
+    "node": "*"
   }
 }
