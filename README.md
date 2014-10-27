@@ -88,21 +88,11 @@ The framework comes with several validators, to understand them further you may 
 * ```string``` - Optionally you can pass in ```minLength``` and/or ```maxLength```.
 
 ## Examples
-The project comes with examples in the examples directory:
-
-    node examples/person
-    coffee examples/address
-
-Note that if you are using sublime you can get the alignment shown in the person example using the [sublime text alignment package](http://wbond.net/sublime_packages/alignment).
+The project comes with examples in the examples directory.
 
 ## Tests
-First install mocha: 
 
-    npm install mocha -g
-
-Run the tests using ```npm test``` or:
-
-    mocha -R spec spec/ -w -G --recursive -b
+    mocha -R spec spec/testFixture spec/ --recursive
 
 ## Future
 * Numeric validators - >, <, >=, <=
