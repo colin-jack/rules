@@ -2,7 +2,7 @@ rules (node.js)
 ==========
 [![Build Status](https://travis-ci.org/colin-jack/rules.png)](https://travis-ci.org/#!/colin-jack/rules)
 
-A small rules framework that can be used to validate any value, either by you creating a rules/schema object or applying validations to a single value. In both cases a fluent interface is used.
+A tiny rules framework that can be used to validate any value, either by you creating a rules/schema object or applying validations to a single value. In both cases a fluent interface is used.
 ## Samples
 ### Schema
 You create an object to declare the rules/invariants you want to apply (something akin to a schema). A fluent interface makes it easy to specify the invariants for each property:
