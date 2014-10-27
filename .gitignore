@@ -1,3 +1,11 @@
-/node_modules/*
-npm-debug.log
 *.sublime*
+*~
+/node_modules/*
+/obj/*
+/*.sublime*
+/documents/*
+/documents/
+npm-debug.log
+*.suo
+*.sln
+*.njsproj
