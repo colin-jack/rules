@@ -1,51 +1,39 @@
 {
   "version": "0.6.42",
   "name": "rules",
-  
   "preferGlobal": false,
-
   "description": "Validate objects against predefined rules (node.js).",
-  
   "main": "index",
-
   "author": {
     "name": "Colin Jack"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/colin-jack/rules.git"
   },
-
   "dependencies": {
-    "underscore": "*",
     "moment": "*",
-    "require-namespace" : "*"
+    "require-namespace": "^0.3.2",
+    "underscore": "*"
   },
-
   "scripts": {
     "test": "mocha -R spec spec/testFixture spec/ --recursive"
   },
-
   "keywords": [
     "validation",
     "rules",
     "schema"
   ],
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
-    "objectcompare" : "*"
+    "objectcompare": "*"
   },
-
   "_npmUser": {
     "name": "colin_jack",
     "email": "colin.jack@gmail.com"
   },
-
   "license": "MIT",
-  
   "engines": {
     "node": "*"
   }
