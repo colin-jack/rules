@@ -17,7 +17,7 @@
     "underscore": "*"
   },
   "scripts": {
-    "test": "mocha -R spec spec/testFixture spec/ --recursive"
+    "test": "mocha -R spec spec/testFixture spec/ --recursive -b"
   },
   "keywords": [
     "validation",

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{964ef122-b14d-41e8-93c9-28eb70f0b58d}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>invoke_mocha.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="examples\address.coffee" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Compile Include="examples\address.js" />
+    <Compile Include="grunt.js" />
+    <Compile Include="index.js" />
+    <Compile Include="examples\person.js" />
+    <Compile Include="invoke_mocha.js" />
+    <Compile Include="lib\applyPropertyRule.js" />
+    <Compile Include="lib\applyRules.js" />
+    <Compile Include="lib\ensure.js" />
+    <Compile Include="lib\failureType.js" />
+    <Compile Include="lib\hasValue.js" />
+    <Compile Include="lib\isNumeric.js" />
+    <Compile Include="lib\mustBe.js" />
+    <Compile Include="lib\namespace.js" />
+    <Compile Include="lib\rules.js" />
+    <Compile Include="lib\RulesError.js" />
+    <Compile Include="spec\testFixture.js" />
+    <Compile Include="lib\fluentInterface\ensureFluentInterface.js" />
+    <Compile Include="lib\fluentInterface\validationFluentInterface.js" />
+    <Compile Include="lib\fluentInterface\valueFirstFluentInterface.js" />
+    <Compile Include="lib\validators\applySubValidations.js" />
+    <Compile Include="lib\validators\arrayValidator.js" />
+    <Compile Include="lib\validators\populatedValidator.js" />
+    <Compile Include="lib\validators\regularExpressionValidator.js" />
+    <Compile Include="lib\validators\subValidationsCreator.js" />
+    <Compile Include="lib\validators\throwIfConfigHasUnexpectedKeys.js" />
+    <Compile Include="lib\validators\date\dateRangeValidator.js" />
+    <Compile Include="lib\validators\date\dateValidator.js" />
+    <Compile Include="lib\validators\date\now.js" />
+    <Compile Include="lib\validators\numeric\integerValidator.js" />
+    <Compile Include="lib\validators\numeric\numericRangeValidator.js" />
+    <Compile Include="lib\validators\numeric\numericValidator.js" />
+    <Compile Include="lib\validators\string\stringLengthValidator.js" />
+    <Compile Include="lib\validators\string\stringValidator.js" />
+    <Compile Include="spec\fluentInterface\applyingDeclarative.js" />
+    <Compile Include="spec\fluentInterface\applyingWithFunctions.js" />
+    <Compile Include="spec\fluentInterface\ensure.js" />
+    <Compile Include="spec\fluentInterface\testUtil.js" />
+    <Compile Include="spec\rules\applyingNoRules.js" />
+    <Compile Include="spec\rules\applyRules_hierarchy.js" />
+    <Compile Include="spec\rules\applyRules_simple.js" />
+    <Compile Include="spec\rules\applyToNonObject.js" />
+    <Compile Include="spec\rules\mustBe.js" />
+    <Compile Include="spec\validators\testUtil.js" />
+    <Compile Include="spec\validators\array\fail.js" />
+    <Compile Include="spec\validators\array\pass.js" />
+    <Compile Include="spec\validators\date\faiingToCreate.js" />
+    <Compile Include="spec\validators\date\fail.js" />
+    <Compile Include="spec\validators\date\pass.js" />
+    <Compile Include="spec\validators\numericValidator\fail.js" />
+    <Compile Include="spec\validators\numericValidator\failingToCreate.js" />
+    <Compile Include="spec\validators\numericValidator\pass.js" />
+    <Compile Include="spec\validators\populatedValidator\fail.js" />
+    <Compile Include="spec\validators\populatedValidator\pass.js" />
+    <Compile Include="spec\validators\regex\fail.js" />
+    <Compile Include="spec\validators\regex\failingToCreate.js" />
+    <Compile Include="spec\validators\regex\pass.js" />
+    <Compile Include="spec\validators\string\fail.js" />
+    <Compile Include="spec\validators\string\pass.js" />
+    <Compile Include="spec\validators\date\range\fail.js" />
+    <Compile Include="spec\validators\date\range\failingToCreate.js" />
+    <Compile Include="spec\validators\date\range\handles.js" />
+    <Compile Include="spec\validators\date\range\now.js" />
+    <Compile Include="spec\validators\date\range\pass.js" />
+    <Compile Include="spec\validators\numericValidator\integer\fail.js" />
+    <Compile Include="spec\validators\numericValidator\integer\pass.js" />
+    <Compile Include="spec\validators\numericValidator\numericRangeValidator\fail.js" />
+    <Compile Include="spec\validators\numericValidator\numericRangeValidator\failingToCreate.js" />
+    <Compile Include="spec\validators\numericValidator\numericRangeValidator\pass.js" />
+    <Compile Include="spec\validators\string\length\fail.js" />
+    <Compile Include="spec\validators\string\length\failingToCreate.js" />
+    <Compile Include="spec\validators\string\length\pass.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="examples" />
+    <Folder Include="lib" />
+    <Folder Include="lib\fluentInterface" />
+    <Folder Include="lib\validators" />
+    <Folder Include="lib\validators\date" />
+    <Folder Include="lib\validators\numeric" />
+    <Folder Include="lib\validators\string" />
+    <Folder Include="spec" />
+    <Folder Include="spec\fluentInterface" />
+    <Folder Include="spec\rules" />
+    <Folder Include="spec\validators" />
+    <Folder Include="spec\validators\array" />
+    <Folder Include="spec\validators\date" />
+    <Folder Include="spec\validators\date\range" />
+    <Folder Include="spec\validators\numericValidator" />
+    <Folder Include="spec\validators\numericValidator\integer" />
+    <Folder Include="spec\validators\numericValidator\numericRangeValidator" />
+    <Folder Include="spec\validators\populatedValidator" />
+    <Folder Include="spec\validators\regex" />
+    <Folder Include="spec\validators\string" />
+    <Folder Include="spec\validators\string\length" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

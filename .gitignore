@@ -1,4 +1,3 @@
-*.sublime*
 *~
 /node_modules/*
 /obj/*
@@ -7,5 +6,8 @@
 /documents/
 npm-debug.log
 *.suo
-*.sln
-*.njsproj
+*.dll
+*.ntvs*.dat
+*.dat.tmp
+*.tmp
+.ntvs_analysis.dat

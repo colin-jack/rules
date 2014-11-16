@@ -1,7 +1,7 @@
 var assert = require('chai').assert,
     ensure = require('./../../index').ensure;
 
-describe("rules - ensure", function() {
+describe("rules - ensure: ", function() {
     describe("when you use ensure for integer validation", function() {
         var expectedFailureType = "not_an_integer";
 
