@@ -12,7 +12,12 @@ describe("rules - ensure: ", function() {
 
         it("should fail if integer value is not numeric and you specify property", function() {
             var shouldFail = function() { ensure(5.5, "age").integer(); }
-            assertThrows(shouldFail, "age", "The value must be an integer.", expectedFailureType);
+            assertThrows(shouldFail, "age", "The 'age' value must be an integer.", expectedFailureType);
+        });
+        
+        it("should fail if integer value is not numeric", function () {
+            var shouldFail = function () { ensure(5.5).integer(); }
+            assertThrows(shouldFail, undefined, "The value must be an integer.", expectedFailureType);
         });
 
         it("should pass if integer value is OK", function() {
@@ -27,9 +32,16 @@ describe("rules - ensure: ", function() {
             assertThrows(shouldFail, "name", "The value must be populated.", "not_populated");
         });
 
-        it("should fail if integer value is not a string", function() {
+        it("should fail if integer value is not a string and include name in the message", function () {
+            debugger;
             var shouldFail = function() { ensure(false, "name").populated().string(); }
-            assertThrows(shouldFail, "name", "The value must be a string.", "not_a_string");
+            assertThrows(shouldFail, "name", "The 'name' value must be a string.", "not_a_string");
+        });
+        
+        it("should fail if integer value is not a string", function () {
+            debugger;
+            var shouldFail = function () { ensure(false).populated().string(); }
+            assertThrows(shouldFail, undefined, "The value must be a string.", "not_a_string");
         });
 
         it("should pass if integer value is OK", function() {

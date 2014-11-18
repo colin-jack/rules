@@ -1,5 +1,5 @@
 {
-  "version": "0.6.45",
+  "version": "0.6.50",
   "name": "rules",
   "preferGlobal": false,
   "description": "Validate objects against predefined rules (node.js).",

@@ -6,7 +6,7 @@
     <ProjectGuid>{964ef122-b14d-41e8-93c9-28eb70f0b58d}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>invoke_mocha.js</StartupFile>
+    <StartupFile>spec\invoke_mocha.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
@@ -20,7 +20,6 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="examples\address.js" />
-    <Compile Include="grunt.js" />
     <Compile Include="index.js" />
     <Compile Include="examples\person.js" />
     <Compile Include="invoke_mocha.js" />
@@ -34,6 +33,7 @@
     <Compile Include="lib\namespace.js" />
     <Compile Include="lib\rules.js" />
     <Compile Include="lib\RulesError.js" />
+    <Compile Include="spec\invoke_mocha.js" />
     <Compile Include="spec\testFixture.js" />
     <Compile Include="lib\fluentInterface\ensureFluentInterface.js" />
     <Compile Include="lib\fluentInterface\validationFluentInterface.js" />
