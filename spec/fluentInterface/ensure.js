@@ -3,21 +3,27 @@ var assert = require('chai').assert,
 
 describe("rules - ensure: ", function() {
     describe("when you use ensure for integer validation", function() {
-        var expectedFailureType = "not_an_integer";
+        var NotIntegerErrorType = "not_an_integer";
+        var NotNumericErrorType = "not_numeric";
 
         it("should fail if integer value is not numeric", function() {
-            var shouldFail = function() { ensure(5.5).integer(); }
-            assertThrows(shouldFail, undefined, "The value must be an integer.", expectedFailureType);
-        });
-
-        it("should fail if integer value is not numeric and you specify property", function() {
-            var shouldFail = function() { ensure(5.5, "age").integer(); }
-            assertThrows(shouldFail, "age", "The 'age' value must be an integer.", expectedFailureType);
+            var shouldFail = function() { ensure(false).integer(); }
+            assertThrows(shouldFail, undefined, "The value must be numeric.", NotNumericErrorType);
         });
         
-        it("should fail if integer value is not numeric", function () {
+        it("should fail if integer value is not numeric and you specify property", function () {
+            var shouldFail = function () { ensure(false, "age").integer(); }
+            assertThrows(shouldFail, "age", "The 'age' value must be numeric.", NotNumericErrorType);
+        });
+
+        it("should fail if integer value is not an integer and you specify property", function() {
+            var shouldFail = function() { ensure(5.5, "age").integer(); }
+            assertThrows(shouldFail, "age", "The 'age' value must be an integer.", NotIntegerErrorType);
+        });
+        
+        it("should fail if integer value is not an integer", function () {
             var shouldFail = function () { ensure(5.5).integer(); }
-            assertThrows(shouldFail, undefined, "The value must be an integer.", expectedFailureType);
+            assertThrows(shouldFail, undefined, "The value must be an integer.", NotIntegerErrorType);
         });
 
         it("should pass if integer value is OK", function() {
