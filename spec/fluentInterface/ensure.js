@@ -25,6 +25,11 @@ describe("rules - ensure: ", function() {
             var shouldFail = function () { ensure(5.5).integer(); }
             assertThrows(shouldFail, undefined, "The value must be an integer.", NotIntegerErrorType);
         });
+        
+        it("should fail if integer value is not an integer", function () {
+            var shouldFail = function () { ensure(5.5).integer(); }
+            assertThrows(shouldFail, undefined, "The value must be an integer.", NotIntegerErrorType);
+        });
 
         it("should pass if integer value is OK", function() {
             var shouldPass = function() { ensure(5, "age").integer(); }
@@ -34,8 +39,13 @@ describe("rules - ensure: ", function() {
 
     describe("when you use ensure for populate string validation", function() {
         it("should fail if value is not populated", function() {
-            var shouldFail = function() { ensure(null, "name").populated().string(); }
-            assertThrows(shouldFail, "name", "The value must be populated.", "not_populated");
+            var shouldFail = function() { ensure(null).populated().string(); }
+            assertThrows(shouldFail, undefined, "The value must be populated.", "not_populated");
+        });
+        
+        it("should fail if value is not populated and you specify property", function () {
+            var shouldFail = function () { ensure(null, "name").populated().string(); }
+            assertThrows(shouldFail, "name", "The 'name' value must be populated.", "not_populated");
         });
 
         it("should fail if integer value is not a string and include name in the message", function () {
