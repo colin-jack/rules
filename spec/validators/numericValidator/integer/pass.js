@@ -1,5 +1,6 @@
-var assert = require('chai').assert;
-var integerValidator = rulesLib.require('integerValidator');
+var fixture = require("./../../../testFixture")
+var assert = fixture.assert;
+var integerValidator = fixture.rulesLib.integerValidator;
 
 describe('integer validator', function() {
 	var underTest;
@@ -9,7 +10,8 @@ describe('integer validator', function() {
 	});
 
 	describe('when you use the validator to validate integer primitives', function() {
-		it('should pass validation', function() {
+        it('should pass validation', function () {
+            debugger;
 			assertPassesValidation(50000);
 			assertPassesValidation(50);
 			assertPassesValidation(1);
@@ -26,7 +28,8 @@ describe('integer validator', function() {
 	});
 
 	describe('when you use the validator to validate Number objects for integer values', function() {
-		it('should pass validation', function() {
+        it('should pass validation', function () {
+            debugger;
 			assertPassesValidation(new Number(50000));
 			assertPassesValidation(new Number(50));
 			assertPassesValidation(new Number(1));

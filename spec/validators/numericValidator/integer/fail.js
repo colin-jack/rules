@@ -1,5 +1,8 @@
+var fixture = require("./../../../testFixture")
+var assert = fixture.assert;
+var integerValidator = fixture.rulesLib.integerValidator;
+
 var validatorTestUtil = require('./../../testUtil');
-var integerValidator = rulesLib.require('integerValidator');
 
 describe('numeric range validator', function() {
     describe('When the value is contains a decimal value', function() {

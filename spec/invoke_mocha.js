@@ -8,12 +8,12 @@ var mocha = new Mocha({ timeout: 10000 });
 // Then, you need to use the method "addFile" on the mocha
 // object for each file.
 
-var testDirectory = __dirname + "/fluentInterface/";
+var testDirectory = __dirname + "/validators/numericValidator/integer/";
 
 // Here is an example:
 fs.readdirSync(testDirectory).filter(function (file) {
     // Only keep the .js files
-    return file.substr(-3) === '.js' && file.indexOf("ensure") !== -1;
+    return file.substr(-3) === '.js' && file.indexOf("pass") !== -1;
 
 }).forEach(function (file) {
     // Use the method "addFile" to add the file to mocha
