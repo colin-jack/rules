@@ -26,9 +26,9 @@ describe("rules - ensure: ", function() {
             assertThrows(shouldFail, undefined, "The value must be an integer.", NotIntegerErrorType);
         });
         
-        it("should fail if integer value is an integer as a string", function () {
-            var shouldFail = function () { ensure("5", "age").integer(); }
-            assertThrows(shouldFail, "age", "The 'age' value must be an integer.", NotIntegerErrorType);
+        it("should pass if integer value is an integer as a string", function () {
+            var shouldPass = function () { ensure("5", "age").integer(); }
+            assert.doesNotThrow(shouldPass);
         });
     });
 
